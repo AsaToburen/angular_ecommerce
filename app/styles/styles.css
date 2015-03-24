@@ -1,0 +1,156 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, form, label, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: "";
+  content: none; }
+
+q:before, q:after {
+  content: "";
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/*=================
+ Content Styles 
+ ===================*/
+body {
+  width: 100%;
+  height: 50em;
+  font-family: 'Neuton', serif; }
+
+div nav {
+  height: 4.5em;
+  background-color: grey;
+  padding: 1.5em 4em 0 6em; }
+  div nav h1 {
+    font-size: 2.5em;
+    display: inline-block;
+    margin-top: .2em;
+    font-family: 'Montserrat', sans-serif; }
+  div nav ul {
+    list-style-type: none;
+    display: inline-block;
+    text-align: center; }
+  div nav .nav-links {
+    float: right;
+    margin-right: 17em; }
+  div nav .access-links {
+    float: right;
+    margin-right: 2em; }
+  div nav li + li:before {
+    content: "|";
+    padding: 0 1em; }
+  div nav li {
+    display: inline-block;
+    list-style-type: none;
+    font-size: 1.2em;
+    margin: 1em 0; }
+    div nav li a {
+      text-decoration: none;
+      color: black; }
+
+section.home {
+  margin: 0 auto;
+  width: 87%; }
+  section.home div.banner {
+    position: relative;
+    margin: auto;
+    background-image: url("../images/store-home.jpg");
+    width: 100%;
+    height: 40em;
+    margin-bottom: 2em;
+    background-size: cover;
+    background-position: 75%; }
+
+div.content-wrap div {
+  vertical-align: top; }
+div.content-wrap div.text-content {
+  display: inline-block;
+  padding: 1em;
+  width: 30%;
+  height: 10em;
+  border: 2px solid #dedede; }
+  div.content-wrap div.text-content p {
+    line-height: 2em; }
+div.content-wrap div.location-info {
+  display: inline-block;
+  margin: 0 4em; }
+  div.content-wrap div.location-info ul {
+    margin-top: 0; }
+    div.content-wrap div.location-info ul li {
+      margin-bottom: 1.7em;
+      font-size: 1.3em; }
+div.content-wrap div.store-map {
+  display: inline-block;
+  border-left: 2px solid #dedede;
+  border-right: 2px solid #dedede;
+  padding: 0 2em;
+  margin-left: 2em; }
+
+section.products {
+  margin: 0 auto;
+  width: 95%;
+  height: 40em;
+  padding-top: 1.5em; }
+  section.products aside {
+    border: 2px solid #000;
+    display: inline-block;
+    width: 12%; }
+    section.products aside ul li {
+      text-decoration: none;
+      list-style-type: none;
+      padding: .5em;
+      font-size: 1.1em;
+      text-align: center; }
+      section.products aside ul li a {
+        color: #000;
+        text-decoration: none;
+        text-align: center;
+        font-family: 'Montserrat', sans-serif; }
+      section.products aside ul li:hover {
+        background-color: #2E5077; }
+        section.products aside ul li:hover a {
+          color: #c0cad6; }
+  section.products div.product-container {
+    box-sizing: content-box;
+    display: inline-block;
+    float: right;
+    width: 68.3%;
+    border: 1px solid #000;
+    height: 100%;
+    padding: 1em 2em;
+    overflow: scroll; }
+    section.products div.product-container div.item {
+      width: 30%;
+      height: 30%;
+      border: 2px solid #000;
+      display: inline-block;
+      margin: .5em .7em; }
+  section.products div.shop-cart {
+    width: 10%;
+    display: inline-block;
+    height: 7em;
+    padding: 1em 1em;
+    margin: 0 0em 0 1em;
+    float: right;
+    border: 2px solid #000; }
