@@ -1,7 +1,8 @@
 'use strict';
 
 
-storeApp.directive('departmentNav', function() {
+angular.module('storeApp')
+  .directive('departmentNav', function() {
   return {
     restrict: 'E',
     templateUrl: 'directives/department-nav.html',

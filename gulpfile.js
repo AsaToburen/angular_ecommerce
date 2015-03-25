@@ -45,15 +45,18 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('app/styles'));
 });
 
-//gulp.task('index', function () {
-//  var target = gulp.src('./index.html');
-//  var sources = gulp.src(['./app/**/*.js'], {read: false});
-//  return target.pipe(inject(sources))
-//    .pipe(gulp.dest('./app'));
-//});
+gulp.task('index', function () {
+  var target = gulp.src('./app/index.html');
+  var sources = gulp.src(['./app/**/*.js'], {read: false});
+  return target.pipe(inject(sources, {
+    ignorePath: 'app',
+    addRootSlash: false
+  }))
+    .pipe(gulp.dest('./app'));
+});
 
 gulp.task('watch', function() {
-  //gulp.watch('./app/**/*.js', ['index']);
+  gulp.watch('./app/**/*.js', ['index']);
   gulp.watch('./app/sass/styles.scss', ['sass']);
 });
 

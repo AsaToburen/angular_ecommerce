@@ -1,6 +1,7 @@
 'use strict';
 
-storeApp.directive('products', function() {
+angular.module('storeApp')
+  .directive('products', function() {
   return {
     restrict: 'E',
     templateUrl: 'directives/product-section.html',
