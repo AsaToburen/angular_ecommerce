@@ -10,6 +10,7 @@ var rev = require('gulp-rev');
 var clean = require('gulp-clean');
 var sass = require('gulp-ruby-sass');
 var imagemin = require('gulp-imagemin');
+var inject = require('gulp-inject');
 
 
 gulp.task('copy-html-files', function() {
@@ -44,8 +45,15 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('app/styles'));
 });
 
+//gulp.task('index', function () {
+//  var target = gulp.src('./index.html');
+//  var sources = gulp.src(['./app/**/*.js'], {read: false});
+//  return target.pipe(inject(sources))
+//    .pipe(gulp.dest('./app'));
+//});
 
 gulp.task('watch', function() {
+  //gulp.watch('./app/**/*.js', ['index']);
   gulp.watch('./app/sass/styles.scss', ['sass']);
 });
 
@@ -56,7 +64,7 @@ gulp.task('connect', function() {
   });
 });
 
-gulp.task('default', ['watch', 'connect']);
+gulp.task('default', ['watch',  'connect']);
 gulp.task('build', ['copy-html-files', 'imagemin', 'usemin']);
 
 
