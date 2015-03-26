@@ -4,7 +4,23 @@ angular.module('storeApp')
   .factory('cartService', function($q, MoltinAuth) {
 
     var cartObj = {
-     // loading : false,
+
+      loading : false,
+
+      itemList : function () {
+
+        cartObj.loading = true;
+       
+        var deferred = $q.defer();
+        $q.when(MoltinAuth).then(function(moltin) {
+          moltin.Cart.Contents(function(items) {
+            deferred.resolve(items);
+            cartObj.loading = false;
+            console.log(items);
+          });
+      })
+       return deferred.promise;
+      },
 
       addItem : function(itemID) {
 
@@ -17,16 +33,18 @@ angular.module('storeApp')
         return deferred.promise;
       },
 
-      itemList : function () {
-       
-       var deferred = $q.defer();
-       $q.when(MoltinAuth).then(function(moltin) {
-          moltin.Cart.Contents(function(items) {
-            deferred.resolve(items);
+      checkout : function() {
+
+        var deferred = $q.defer();
+        $q.when(MoltinAuth).then(function(moltin) {
+          moltin.Cart.Checkout(function(cart) {
+          deferred.resolve(cart);
+          console.log(cart);
           });
-       })
-       return deferred.promise;
-      },
+        })
+        return deferred.promise;
+      }
+
     };
 
     return cartObj;

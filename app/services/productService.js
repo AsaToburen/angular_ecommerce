@@ -10,7 +10,7 @@ angular.module('storeApp')
 
       getList: function(){
         
-        productObj.loadingList = true;
+      productObj.loadingList = true;
         
         var deferred = $q.defer();
          $q.when(MoltinAuth).then(function(moltin) {
@@ -22,7 +22,7 @@ angular.module('storeApp')
           return deferred.promise;
       },
 
-      getCategory: function($q, $route, MoltinAuth) {
+      getCategory: function() {
 
         productObj.loadingCategory = true;
 

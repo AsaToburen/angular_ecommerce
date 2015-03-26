@@ -1,31 +1,29 @@
 'use strict';
 
 angular.module('storeApp')
-  .controller('DepartmentCtrl', ['$scope', '$q', 'productService', 'deptService', 'cartService',
-   function($scope, $q, productService, deptService, cartService, products, items, departments) {
+  .controller('DepartmentCtrl', ['$scope', '$q', 'productService', 'deptService', 'cartService', 
+   function($scope, $q, productService, deptService, cartService) {
    
-
-     //items = cartService.items;
-     //products = productService.products;
-    
-     $scope.products = [];
      $scope.departments = [];
+     $scope.products = [];
      $scope.items = [];
 
+     $scope.cart = cartService;
+     $scope.dept = deptService;
 
-    deptService.deptList().$promise.then(function(departments){
+     deptService.deptList().then(function(departments){
          $scope.departments = departments;
     });
 
-    productService.getList().$promise.then(function(products){
+    productService.getList().then(function(products){
         $scope.products = products;
     });
 
-    productService.getCategory().$promise.then(function(products){
+    productService.getCategory().then(function(products){
         $scope.products = products;
     });
 
-    cartService.itemList().$promise.then(function(items){
+    cartService.itemList().then(function(items){
         $scope.items = items;
     });
 

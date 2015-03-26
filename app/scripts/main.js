@@ -24,14 +24,15 @@ angular.module('storeApp', ['storeApp.moltin', 'ngRoute', 'ngAnimate'])
       controller: 'DepartmentCtrl'
     })
     .when('/checkout', {
-      templateUrl: 'views/checkout.html'
-      //controller: 'CartCtrl'
-      //controllerAs: 'CartCtrl'
+      templateUrl: 'views/checkout.html',
+      controller: 'checkoutCtrl'
     })
     .otherwise({
       redirectTo: '/'
     });
   }]);
+
+
   
 
 
