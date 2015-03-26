@@ -33,12 +33,17 @@ angular.module('storeApp')
         return deferred.promise;
       },
 
+      contentLoaded : true,
+
       checkout : function() {
+
+        cartObj.contentLoaded = false;
 
         var deferred = $q.defer();
         $q.when(MoltinAuth).then(function(moltin) {
           moltin.Cart.Checkout(function(cart) {
           deferred.resolve(cart);
+          cartObj.contentLoaded = true;
           console.log(cart);
           });
         })

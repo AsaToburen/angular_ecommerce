@@ -1,23 +1,33 @@
 <div class="cart-container">
-  <form name="checkout" action="">
-    <legend>Shopping Cart</legend>
+  <h1>Shopping Cart</h1>
+  <i ng-show="!checkout.contentLoaded" class="spinner spinner--large spinner--dark"></i>
+  <!-- <i ng-show="!checkout.contentLoaded" class="fa fa-circle-o-notch fa-3x fa-spin"></i> -->
+  <section ng-show="checkout.contentLoaded">
     <table>
-      <tr ng-repeat="">
-        <td>{{}}</td>
-        <td>{{}}</td>
+       <tr class="head">
+       <th></th>
+       <th></th>
+        <th class="head-text">Quantity</th>
+        <th class="head-price">Price</th>
+      </tr>
+      <tr ng-repeat="item in items">
+        <td><img ng-src="{{item.images[0].url.http}}" width="95px" height="110px" alt="{{item.title}}"></td>
+        <td>{{item.title}}</td>
+        <td class="quant">{{item.quantity}}</td>
+        <td class="item-total">{{item.total_before_tax | currency}}</td>
       </tr>
     </table>
-    <table>
+    <table class="totals">
       <tr>
         <td>Subtotal</td>
-        <td>{{}}</td>
+        <td>{{totals.without_tax | currency}}</td>
       </tr>
        <tr>
         <td>Total</td>
-        <td>{{}}</td>
+        <td>{{totals.with_tax | currency}}</td>
       </tr>
     </table>
     <button>Checkout</button>
-    <button>Continue Shopping</button>
-  </form>
+    <a ng-href="#/products">Continue Shopping</a>
+  </section>
 </div>

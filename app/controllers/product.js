@@ -7,6 +7,7 @@ angular.module('storeApp')
      $scope.departments = [];
      $scope.products = [];
      $scope.items = [];
+     $scope.heading = 'Everything Must Go';
 
      $scope.cart = cartService;
      $scope.dept = deptService;
