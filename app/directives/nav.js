@@ -10,19 +10,22 @@ angular.module('storeApp')
   };
 });
 
+/*
 
 angular.module('storeApp')
-.filter('getLow', function ($location) {
+.filter('getLow', function ($location, $route) {
   console.log($location.path());
-  if($location.path() === '#/products') {
-    
+  if($location.path() === '/products') {
+      
     return function (item) {
       return item.replace(/[^A-Z]/g, '');
     };
   } else {
-
       return  function (item) {
+        item = 'Everything Must Go';
         return item;
       };
     }
 });
+
+*/

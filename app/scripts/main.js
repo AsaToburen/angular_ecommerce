@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('storeApp', ['storeApp.moltin', 'ngRoute', 'ngAnimate'])
-  
+angular.module('storeApp', ['storeApp.moltin', 'firebase', 'ngRoute', 'ngAnimate'])
+  .constant('FIREBASE_URL', 'https://shopangular.firebaseio.com/')
   .config(['$routeProvider', function($routeProvider) {
     
     $routeProvider.when('/', {

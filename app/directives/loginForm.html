@@ -1,15 +1,38 @@
-<div class="auth-container">
-  <h1>Everything Must Go</h1>
-  <form name="login" action="console.log('hello')" novalidate>
-    <fieldset>
-      <legend>Login</legend>
-      <span>Username:</span>
-      <input name="username" type="username"><br>
-      <span>Password:</span>
-      <input name="password" type="password"><br>
-    <button name="login">Login</button>
-    <button>Register</button>
-    <button>Continue</button>
-    </fieldset>
-  </form>
-</div>
+<section class="Auth">
+  <div class="auth-container">
+    <h1>Everything Must Go</h1>
+    <form class="login" name="loginForm" 
+      ng-submit="login()" 
+      novalidate>
+
+      <fieldset>
+  
+        <legend>Login</legend>
+  
+  
+        <span>Email:</span>
+        <input
+          type="email" 
+          name="email" 
+          ng-model="user.email"
+          ng-required="true"
+          autofocus><br>
+  
+        <span>Password:</span>
+        <input 
+          type="password"
+          name="password"
+          ng-model="user.password"
+          ng-required="true"
+          ><br>
+  
+  
+      <button 
+         ng-disabled="loginForm.$invalid"
+         type="submit">Login</button>
+      <button>Register</button>
+      <button>Continue</button>
+      </fieldset>
+    </form>
+  </div>
+</section>

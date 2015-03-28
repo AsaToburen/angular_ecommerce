@@ -1,15 +1,44 @@
-<div class="auth-container">
-  <h1>Everything Must Go</h1>
-  <form name="register" action="" novalidate>
-    <fieldset>
-      <legend>Register</legend>
-      First Name: <input name="firstname" type="text"><br>
-      Last Name: <input name="lastname" type="text"><br>
-      Email: <input name="email" type="email"><br>
-      Password: <input name="password" type="password"><br>
-      <button>Login</button>
-      <button>Register</button>
-    </fieldset>
-
-  </form>
-</div>
+<section class="Auth">
+  <div class="auth-container">
+    <form class="auth-field" name="registerForm" ng-submit="register()" novalidate>
+      <fieldset>
+        <legend>Register</legend>
+        <ul>
+          <li>First name:</li>
+          <li>Last name:</li>
+          <li>Email:</li>
+          <li>Password:</li>
+        </ul>
+        
+        <input name="firstname" 
+          type="firstname"
+          ng-model="user.firstname"
+          ng-required="true"
+          autofocus><br>
+  
+        
+        <input name="lastname" 
+          type="lastname"
+          ng-required="true"
+          ng-model="user.lastname"><br>
+  
+       
+        <input name="email" 
+          type="email"
+          ng-required="true"
+          ng-model="user.email">
+          <br>
+  
+       
+        <input name="password" 
+          type="password"
+          ng-required="true"
+          ng-model="user.password">
+          <br>
+        <p>{{error.message}}</p>
+        <button ng-click="toLogin()">Login</button>
+        <button ng-disabled="registerForm.$invalid" name="registerForm" type="submit">Register</button>
+      </fieldset>
+    </form>
+  </div>
+</section>

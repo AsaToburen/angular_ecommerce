@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('storeApp')
-  .factory('cartService', function($q, MoltinAuth) {
+  .factory('cartService', function($q, $location, MoltinAuth) {
 
     var cartObj = {
 
@@ -48,6 +48,12 @@ angular.module('storeApp')
           });
         })
         return deferred.promise;
+      },
+
+      toProducts : function() {
+
+        $location.path('/products');
+
       }
 
     };

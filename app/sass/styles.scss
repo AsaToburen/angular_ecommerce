@@ -187,6 +187,39 @@ div {
     }
   }
 
+
+  .auth-field {
+    transition: all 1s ease;
+    position: relative;
+    bottom: -2em;
+  }
+
+    .login {
+    transition: all 1s ease;
+    position: relative;
+    bottom: -2em;
+  }
+
+  .view {
+
+    transition: all .3s ease;
+  }
+  
+
+  .view.ng-enter {
+      
+     .login {
+        bottom: 20em;
+        position: relative;
+     } 
+     .auth-field { 
+        position: relative;
+        bottom: 30em;
+     }
+  }
+
+
+
   section.home {
     margin: 0 auto;
     width: 87%;
@@ -253,10 +286,7 @@ div {
       display: inline-block;
       min-height: 6em;
       width: 12%;
-//     -moz-transition: height .5s ease;
-//     -webkit-transition: height .5s ease;
-//     -o-transition: height .5s ease;
-//     transition: height .5s ease;
+
       i {
         left: 1.1em;
         top: 0.5em;
@@ -360,7 +390,7 @@ div {
         position: relative;
         z-index: 12;
         top: 30%;
-        left: 40%;
+        left: 53%;
         font-family: 'Montserrat', sans-serif;
       }
       button {
@@ -419,7 +449,7 @@ div {
             right: 2.1em;
         }
         tr {
-          height: 10em;
+          height: 9em;
           border-bottom: 2px solid #dedede;
         }
         tr.head {
@@ -477,32 +507,66 @@ div {
       }
   }
 
-  div.auth-container {
-    width: 31%;
-    margin: 5em auto;
-
-    legend {
-      text-align: left;
-    }
-
-    fieldset {
-      height: 14em;
-      width: 19em;
-      font-size: 1.2em;
-      padding-top: 2em;
-      text-align: right;
-      padding-bottom: 3em;
-    }
-    input {
-      margin: 2.5em 7em 0em 2em;
-      height: 2em;
-
+  section.Auth {
       
-    }
+      width: 100%;
+      position: absolute;
+      height: 50em;
+      background-image: url('../images/auth_bg.jpg');
+      background-repeat: no-repeat;
+      background-size: 100%;
   }
 
 
+  div.auth-container {
+    width: 33%;
+    margin: 5em auto;
+    position: relative;
 
+    legend {
+      text-align: left;
+      font-size: 2.5em;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    fieldset {
+      background-color: #E6E6FA;
+      font-size: 1.2em;
+      text-align: right;
+      padding-bottom: 2em;
+    }
+    
+    ul {
+      float: left;
+      margin-left: 4.5em;
+      li {
+        margin: 1.85em 0em;
+
+      }
+    }
+
+    input {
+      margin: 2.5em 7em 0em 2em;
+      height: 2em;
+      float: right;
+    }
+    button {
+      clear: both;
+      position: relative;
+      right: 4em;
+      top: 2em;
+      padding: 1em;
+      margin-right: 2em;
+
+    }
+
+  }
+
+  form.login {
+    button {
+        margin-right: 1em;
+    }
+  }
 
 
 

@@ -1,13 +1,15 @@
 'use strict';
 
 angular.module('storeApp')
-  .controller('DepartmentCtrl', ['$scope', '$q', 'productService', 'deptService', 'cartService', 
+  .controller('DepartmentCtrl', ['$scope', '$q', 'productService', 'deptService', 'cartService',
    function($scope, $q, productService, deptService, cartService) {
    
      $scope.departments = [];
      $scope.products = [];
      $scope.items = [];
      $scope.heading = 'Everything Must Go';
+
+     
 
      $scope.cart = cartService;
      $scope.dept = deptService;
