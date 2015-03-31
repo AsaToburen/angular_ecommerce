@@ -7,12 +7,13 @@ angular.module('storeApp')
       templateUrl: 'directives/nav.html',
       replace: true,
       scope: true,
-      controller: function($scope, Authentication) {
+      controller: function($scope, Authentication, $firebaseObject) {
         console.log(Authentication.isLoggedIn());
-        console.log(Authentication);
-        $scope.isLoggedIn = Authentication.isLoggedIn();
+      $scope.isLoggedIn = Authentication.isLoggedIn();
+      $scope.userProfile = Authentication.getUserProfile();
+      console.log($scope.userProfile);
       }
-    }
+    };
   });
 
 /*

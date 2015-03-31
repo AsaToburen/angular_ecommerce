@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('storeApp')
-  .factory('Authentication', ['$firebase', '$firebaseObject', '$q', '$firebaseAuth',
+  .factory('Authentication', ['$firebase', '$q', '$firebaseObject', '$firebaseAuth',
       '$location', 'FIREBASE_URL',
 
       function($firebase, $q, $firebaseObject, $firebaseAuth,
@@ -12,6 +12,7 @@ angular.module('storeApp')
 
         var myObject = {
 
+          ref : new Firebase(FIREBASE_URL),
           authData: {},
           userData: {},
 
@@ -27,15 +28,22 @@ angular.module('storeApp')
             }).then(function(authData) {
               deferred.resolve(authData);
               myObject.userData = authData;
-
+              myObject.uid = authData.uid;
             var userRef = new Firebase(FIREBASE_URL + 'users/' + authData.uid);
 
         ref.on('value', function(userProfile) {
-            myObject.userData = userProfile.val();
+            myObject.userData = userProfile.val().users;
             deferred.resolve(myObject.userData);
           });
         });
       return deferred.promise;
+    },
+
+    getUserProfile: function(userId) {
+      var userRef = new Firebase(FIREBASE_URL + 'users/' + userId);
+      var profileRef = userRef.child(userId);
+       return $firebaseObject(profileRef);
+
     },
 
     register: function(user) {

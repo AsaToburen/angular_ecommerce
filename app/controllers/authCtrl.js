@@ -8,12 +8,11 @@ angular.module('storeApp')
 
       $scope.success = Authentication.isLoggedIn();
 
-      var ref = new Firebase(FIREBASE_URL);
-      var auth = $firebaseAuth(ref);
 
       $scope.login = function(user) {
         Authentication.login($scope.user)
           .then(function(user) {
+            Authentication.getUserProfile(user.uid);
             $location.path('/products');
           }).catch(function(error) {
             $scope.message = error.message;
@@ -29,14 +28,6 @@ angular.module('storeApp')
             $scope.message = error.message;
           });
       };
-
-    $scope.userProfile = Authentication.getUserProfile();
-
-
-    $scope.userProfile.$loaded().then(function() {
-      console.log($scope.profile);  // "Marie Curie"
-      
-    });
   
       $scope.toRegister = function() {
         $location.path('/register');
