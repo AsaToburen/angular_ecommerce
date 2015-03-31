@@ -5,6 +5,7 @@
         ng-class="{ active: isActive('/products/{{department.id}}') }" 
         ng-repeat="department in departments">
         <a ng-href="#/products/{{department.id}}">{{department.title}}</a>
+        <i ng-if="parent.hasClass('active')" class="spinner spinner--small"></i>
       </li>
     </ul>
 </aside>

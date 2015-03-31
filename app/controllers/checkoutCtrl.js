@@ -12,8 +12,7 @@ angular.module('storeApp')
         $scope.items = items.cart.contents;
         $scope.totals = items.cart.totals.pre_discount.rounded;
 
-        
-
+      
     });
 
    }]);

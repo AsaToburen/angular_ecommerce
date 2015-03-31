@@ -16,7 +16,6 @@ angular.module('storeApp')
           moltin.Cart.Contents(function(items) {
             deferred.resolve(items);
             cartObj.loading = false;
-            console.log(items);
           });
       })
        return deferred.promise;
@@ -44,7 +43,7 @@ angular.module('storeApp')
           moltin.Cart.Checkout(function(cart) {
           deferred.resolve(cart);
           cartObj.contentLoaded = true;
-          console.log(cart);
+          
           });
         })
         return deferred.promise;

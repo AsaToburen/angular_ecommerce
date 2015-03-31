@@ -1,6 +1,5 @@
 <section class="Auth">
   <div class="auth-container">
-    <h1>Everything Must Go</h1>
     <form class="login" name="loginForm" 
       ng-submit="login()" 
       novalidate>
@@ -8,9 +7,13 @@
       <fieldset>
   
         <legend>Login</legend>
-  
-  
-        <span>Email:</span>
+        <p class="error" ng-show="loginStatus === false">Provide a valid email and password</p>
+        <p class="success" ng-show="loginStatus">Success!!</p>
+        <ul>
+          <li>Email:</li>
+          <li>Password:</li>
+        </ul>
+        
         <input
           type="email" 
           name="email" 
@@ -18,7 +21,7 @@
           ng-required="true"
           autofocus><br>
   
-        <span>Password:</span>
+       
         <input 
           type="password"
           name="password"
@@ -30,8 +33,8 @@
       <button 
          ng-disabled="loginForm.$invalid"
          type="submit">Login</button>
-      <button>Register</button>
-      <button>Continue</button>
+      <button ng-click="toRegister()">Register</button>
+      <button ng-click="toProducts()">Continue</button>
       </fieldset>
     </form>
   </div>

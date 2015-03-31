@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('storeApp')
-  .controller('AuthCtrl', ['$scope', '$firebaseAuth', 'FIREBASE_URL', 
+  .controller('AuthCtrl', ['$scope', '$rootScope', '$firebaseAuth', 'FIREBASE_URL', 
     '$location', 'Authentication', 
-    function($scope, $firebaseAuth, 
+    function($scope, $rootScope, $firebaseAuth, 
       FIREBASE_URL, $location, Authentication) {
      
 
@@ -14,13 +14,9 @@ angular.module('storeApp')
     $scope.login = function() {
       Authentication.login($scope.user)
       .then(function(user){
-        console.log(user);
-        $scope.loginStatus = true;
         $location.path('/products');
         console.log($scope.loginStatus);
       }).catch(function(error){
-        $scope.loginStatus = false;
-        console.log($scope.loginStatus);
         $scope.message = error.message;
       });
     };
@@ -34,7 +30,7 @@ angular.module('storeApp')
         $scope.message = error.message;
       });
    };
-   console.log(Authentication.profileRef);
+   
     $scope.toRegister = function(){
       $location.path('/register');
     };

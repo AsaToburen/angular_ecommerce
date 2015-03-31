@@ -25,6 +25,7 @@ angular.module('storeApp')
           email: user.email,
           password: user.password
         }).then(function(regUser){
+
           var profileRef = new Firebase (FIREBASE_URL + 'users');
 
            profileRef.set({

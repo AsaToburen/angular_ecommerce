@@ -2,10 +2,10 @@
 
 angular.module('storeApp')
   .directive('login', function() {
-    return {
-      restrict: 'E',
-      templateUrl: 'directives/loginForm.html',
-      replace: true,
-      scope: true
-    };
-  });
+  return {
+    restrict: 'E',
+    templateUrl: 'directives/login.html',
+    replace: true,
+    scope: true
+  };
+});

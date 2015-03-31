@@ -73,20 +73,11 @@
        -moz-animation: 0.5s spinner linear infinite;
             animation: 0.5s spinner linear infinite;
 
-    /**
-     * 1. Make the spinner a circle.
-     */
     &,
     &:after {
         border-radius: 100%; /* [1] */
     }
-
-    /**
-     * The (optically) non-spinning part of the spinner.
-     *
-     * 1. Border around entire element fills in the rest of the ring.
-     * 2. Paler than the part that appears to spin.
-     */        
+     
     &:after {
         content: "";
         position: absolute;
@@ -100,17 +91,9 @@
 
 }
 
-/**
- * Size variants (built by adjusting `font-size`).
- */
+
 .spinner--small { font-size: 24px; }
 .spinner--large { font-size: 64px; }
-
-/**
- * Color overrides.
- */
-.spinner--light { color: #fff; }
-.spinner--dark  { color: #000; }
 
 
 @-webkit-keyframes spinner {
@@ -137,34 +120,34 @@
 
 }
 
-
-
 body {
   width: 100%;
   height: 50em;
   font-family: 'Neuton', serif;
+  background-color: #EAEAE6;
 }
 div {
    nav {
        height: 4.5em;
-       background-color: grey;
-       padding: 1.5em 4em 0 6em;
+       background-color: #2D3E4E;
+       padding: 1.5em 4em 0 3.7em;
 
        h1 {
         font-size: 2.5em;
         display: inline-block;
         font-family: 'Montserrat', sans-serif;
-        border: 2px solid #fff;
+        border: 2px solid #3F7CAC;
         padding: .2em;
+        background-color: #EAEAE6;
        }
        ul {
         list-style-type: none;
         display: inline-block;
-        text-align: center;
+        text-align: left;
        }
        .nav-links {
         float: right;
-        margin-right: 17em;
+        margin-right: 6em;
        }
        .access-links {
         float: right;
@@ -180,7 +163,7 @@ div {
         margin: 1em 0;
          a {
           text-decoration: none;
-          color: black;
+          color: #dedede;
          }
        }
       
@@ -201,7 +184,7 @@ div {
   }
 
   .view {
-
+    background-color: #EAEAE6;
     transition: all .3s ease;
   }
   
@@ -223,6 +206,7 @@ div {
   section.home {
     margin: 0 auto;
     width: 87%;
+
     
     div.banner {
       position:relative;
@@ -279,13 +263,14 @@ div {
     margin: 0 auto;
     width: 95%;
     height: 40em;
-    //border: 1px solid #000;
+    background-color: #EAEAE6;
     padding-top: 1.5em;
     aside {
       border: 2px solid #000;
       display: inline-block;
       min-height: 6em;
-      width: 12%;
+      width: 9%;
+      margin-left: 1.5%;
 
       i {
         left: 1.1em;
@@ -298,7 +283,7 @@ div {
           list-style-type: none;
           padding:.5em;
           font-size: 1.1em;
-          text-align: center;
+          text-align: left;
           a {
             color: #000;
             text-decoration: none;
@@ -306,7 +291,7 @@ div {
             font-family: 'Montserrat', sans-serif;
           }
           &:hover {
-            background-color: #2E5077;
+            background-color: #2D3E4E;
             a {color: #c0cad6}
           }
         }
@@ -316,26 +301,28 @@ div {
       }
     }
     div.product-container {
-      display: inline-block;
-      float: right;
-      width: 74.3%;
-      border: 1px solid #000;
-      height: 100%;
-      padding: 1em 2em;
-      overflow: scroll;
-      display: flex;
-      flex-wrap: wrap;
+        float: right;
+        width: 63.3%;
+        border: 1px solid #000;
+        height: 100%;
+        padding: 1em 2em;
+        overflow: scroll;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        left: -14%;
+        background-color: #fff;
         div.item.ng-enter {
           opacity: 0;
         }
         div.item {
           width: 30%;
           height: 30%;
-          border: 2px solid #000;
           margin: .5em .7em;
           text-align: center;
           position: relative;
           transition: opacity .5s ease;
+
           &:hover {
             button {
               display: block;
@@ -371,12 +358,13 @@ div {
 
     }
     div.shop-cart {
-        width: 4.5%;
-        display: inline-block;
-        height: 8.5%;
-        padding: .5em .5em;
-        margin: 0 0em 0 1em;
-        float: right;
+      width: 4.5%;
+      display: inline-block;
+      height: 8.5%;
+      padding: .5em .5em;
+      position: relative;
+      left: -12%;
+      float: right;
         &:hover {
 
         }
@@ -390,7 +378,7 @@ div {
         position: relative;
         z-index: 12;
         top: 30%;
-        left: 53%;
+        left: 45%;
         font-family: 'Montserrat', sans-serif;
       }
       button {
@@ -412,10 +400,11 @@ div {
     h1 {
       font-size: 3em;
       font-family: 'Montserrat', sans-serif;
-      border-bottom: 5px solid black;
+      border-bottom: 5px solid #000;
       display: inline-block;
       padding-bottom: .3em;
       width: 9em;
+
 
     }
     i {
@@ -426,6 +415,9 @@ div {
 
     section {
       transition: opacity .7s ease-in;
+      background-color: #fff;
+      border: 2px solid #000;
+      margin-top: 1.5em;
     }
 
     section.ng-animate {
@@ -485,6 +477,7 @@ div {
         margin-right: 6em;
         padding: .9em;
         font-size: 1.2em;
+        margin-top: 2em;
       }
       a {
         align-items: flex-start;
@@ -557,9 +550,7 @@ div {
       top: 2em;
       padding: 1em;
       margin-right: 2em;
-
     }
-
   }
 
   form.login {
@@ -567,9 +558,3 @@ div {
         margin-right: 1em;
     }
   }
-
-
-
-
-
-

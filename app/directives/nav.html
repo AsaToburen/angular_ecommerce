@@ -1,6 +1,8 @@
 <nav>
   <h1>Everything Must Go</h1>
-  <ul ng-show="!loginStatus" class="access-links">
+  <ul ng-hide="loginStatus === false" class="access-links">
+    <li >Welcome back {{user.firstname}}!</li>
+    <li ng-if="user">Welcome back {{user}}!</li>
     <li><a href="#/register">Register</a></li>
     <li><a href="#/login">Login</a></li>
   </ul>
