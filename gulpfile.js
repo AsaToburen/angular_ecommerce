@@ -47,25 +47,32 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('app/styles'));
 });
 
+gulp.task('index', function () {
+  var target = gulp.src('./app/index.html');
 
 // Concatenate vendor scripts 
 var vendorStream = gulp.src(['./app/bower_components/**/*.js'])
   .pipe(concat('vendors.js'))
   .pipe(gulp.dest('build/'));
  
+  var vendorStream = gulp.src(['./app/bower_components/**/*.js'], {read: false});
+  var otherStream = gulp.src(['./app/scripts/main.js'], {read: false});
+  var serviceStream = gulp.src(['./app/services/*.js'], {read: false});
+  var directiveStream = gulp.src(['./app/directives/*.js'], {read: false});
+  var controllerStream = gulp.src(['./app/controllers/*.js'], {read: false});
 // Concatenate AND minify app sources 
-var appStream = gulp.src(['./app/**/*.js'])
-  .pipe(concat('app.js'))
-  .pipe(uglify())
-  .pipe(gulp.dest('build/'));
- 
-gulp.src('./build/index.html')
-  .pipe(inject(es.merge(vendorStream, appStream)))
-  .pipe(gulp.dest('build/'));
+
+return target
+  .pipe(inject(series(vendorStream, otherStream, serviceStream, directiveStream, controllerStream), {
+      ignorePath: 'app',
+      addRootSlash: false
+    }))
+    .pipe(gulp.dest('./app'));
+});
  
 
 gulp.task('watch', function() {
-  //gulp.watch('./app/**/*.js', ['index']);
+  gulp.watch('./app/**/*.js', ['index']);
   gulp.watch('./app/sass/styles.scss', ['sass']);
 });
 
@@ -77,10 +84,11 @@ gulp.task('connect', function() {
 });
 
 gulp.task('default', ['watch',  'connect']);
-gulp.task('build', ['copy-html-files', 'imagemin', 'inject', 'usemin']);
+gulp.task('build', ['copy-html-files', 'imagemin', 'usemin']);
 
 
-
+//get build into a task and then use stream properly....
+// 
 
 
 

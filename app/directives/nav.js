@@ -2,13 +2,18 @@
 
 angular.module('storeApp')
   .directive('navigation', function() {
-  return {
-    restrict: 'A',
-    templateUrl: 'directives/nav.html',
-    replace: true,
-    scope: true
-  };
-});
+    return {
+      restrict: 'A',
+      templateUrl: 'directives/nav.html',
+      replace: true,
+      scope: true,
+      controller: function($scope, Authentication) {
+        console.log(Authentication.isLoggedIn());
+        console.log(Authentication);
+        $scope.isLoggedIn = Authentication.isLoggedIn();
+      }
+    }
+  });
 
 /*
 

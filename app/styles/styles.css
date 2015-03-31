@@ -107,11 +107,11 @@ div nav {
     display: inline-block;
     text-align: left; }
   div nav .nav-links {
-    float: right;
-    margin-right: 6em; }
+    margin-left: 5em; }
   div nav .access-links {
     float: right;
-    margin-right: 2em; }
+    margin-right: 2em;
+    color: #dedede; }
   div nav li + li:before {
     content: "|";
     padding: 0 1em; }
@@ -139,9 +139,11 @@ div nav {
   transition: all .3s ease; }
 
 .view.ng-enter .login {
+  opacity: 0;
   bottom: 20em;
   position: relative; }
 .view.ng-enter .auth-field {
+  opacity: 0;
   position: relative;
   bottom: 30em; }
 
@@ -390,7 +392,7 @@ div.auth-container {
     font-size: 2.5em;
     font-family: 'Montserrat', sans-serif; }
   div.auth-container fieldset {
-    background-color: #E6E6FA;
+    background-color: #EAEAE6;
     font-size: 1.2em;
     text-align: right;
     padding-bottom: 2em; }

@@ -146,12 +146,13 @@ div {
         text-align: left;
        }
        .nav-links {
-        float: right;
-        margin-right: 6em;
+        margin-left: 5em;
+
        }
        .access-links {
         float: right;
         margin-right: 2em;
+        color: #dedede;
         
        }
        @include addSeparator('li', '|', 1em);
@@ -192,10 +193,12 @@ div {
   .view.ng-enter {
       
      .login {
+        opacity: 0;
         bottom: 20em;
         position: relative;
      } 
-     .auth-field { 
+     .auth-field {
+        opacity: 0; 
         position: relative;
         bottom: 30em;
      }
@@ -523,7 +526,7 @@ div {
     }
 
     fieldset {
-      background-color: #E6E6FA;
+      background-color: #EAEAE6;
       font-size: 1.2em;
       text-align: right;
       padding-bottom: 2em;
