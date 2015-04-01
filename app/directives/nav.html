@@ -2,6 +2,7 @@
   <h1>Everything Must Go</h1>
   <ul class="access-links">
     <li ng-if="isLoggedIn">Welcome back {{ firstname }}!</li>
+    <li ng-if="isLoggedIn" ng-click="auth.logout()">Logout</li>
     <li  ng-hide="isLoggedIn"><a href="#/register">Register</a></li>
     <li ng-hide="isLoggedIn"><a href="#/login">Login</a></li>
   </ul>

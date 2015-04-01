@@ -232,6 +232,7 @@ div {
       width: 30%;
       height: 10em;
       border: 2px solid #dedede;
+      background-color: #fff;
       p {
         line-height: 2em;
 
@@ -256,7 +257,7 @@ div {
         border-right: 2px solid #dedede;
         padding: 0 2em;
         margin-left: 2em;
-
+        background-color: #fff;
     }
   }  
 
@@ -274,8 +275,8 @@ div {
       margin-left: 1.5%;
 
       i {
-        left: 1.1em;
-        top: 0.5em;
+        top: .5em;
+        left: .75em;
         position: relative;
       }
       ul {

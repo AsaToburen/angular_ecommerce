@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('storeApp', ['storeApp.moltin', 'firebase', 'ngRoute', 'ngAnimate'])
+angular.module('storeApp', ['storeApp.moltin', 'firebase', 'ngRoute', 'ngAnimate', 'ngCookies'])
   .constant('FIREBASE_URL', 'https://shopangular.firebaseio.com/')
   .config(['$routeProvider', function($routeProvider) {
     
@@ -32,6 +32,19 @@ angular.module('storeApp', ['storeApp.moltin', 'firebase', 'ngRoute', 'ngAnimate
       redirectTo: '/'
     });
   }]);
+// .run(['$rootScope', '$location', 'Authentication', function ($rootScope, $location, Authentication) {
+//   $rootScope.$on('$routeChangeStart', function (event) {
+
+//       if (!Authentication.isLoggedIn()) {
+//           console.log('DENY');
+//           $location.path('/login');
+//       } else if ($location.path() === '/register') {
+//           console.log('ALLOW');
+//       } else {
+//           console.log('ALLOW');
+//       }
+//   });
+//]);
 
 
   

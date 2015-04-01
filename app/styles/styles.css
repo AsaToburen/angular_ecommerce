@@ -165,7 +165,8 @@ div.content-wrap div.text-content {
   padding: 1em;
   width: 30%;
   height: 10em;
-  border: 2px solid #dedede; }
+  border: 2px solid #dedede;
+  background-color: #fff; }
   div.content-wrap div.text-content p {
     line-height: 2em; }
 div.content-wrap div.location-info {
@@ -181,7 +182,8 @@ div.content-wrap div.store-map {
   border-left: 2px solid #dedede;
   border-right: 2px solid #dedede;
   padding: 0 2em;
-  margin-left: 2em; }
+  margin-left: 2em;
+  background-color: #fff; }
 
 section.products {
   margin: 0 auto;
@@ -196,8 +198,8 @@ section.products {
     width: 9%;
     margin-left: 1.5%; }
     section.products aside i {
-      left: 1.1em;
-      top: 0.5em;
+      top: .5em;
+      left: .75em;
       position: relative; }
     section.products aside ul li {
       text-decoration: none;
