@@ -9,9 +9,9 @@ angular.module('storeApp')
       scope: true,
       controller: function($scope, Authentication, $firebaseObject) {
         console.log(Authentication.isLoggedIn());
+        console.log(Authentication.userData);
+        $scope.userData = Authentication.userData;
       $scope.isLoggedIn = Authentication.isLoggedIn();
-      $scope.userProfile = Authentication.getUserProfile();
-      console.log($scope.userProfile);
       }
     };
   });

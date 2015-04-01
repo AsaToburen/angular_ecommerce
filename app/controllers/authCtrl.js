@@ -7,12 +7,11 @@ angular.module('storeApp')
       FIREBASE_URL, $location, Authentication) {
 
       $scope.success = Authentication.isLoggedIn();
-
+      console.log(Authentication.userData);
 
       $scope.login = function(user) {
         Authentication.login($scope.user)
           .then(function(user) {
-            Authentication.getUserProfile(user.uid);
             $location.path('/products');
           }).catch(function(error) {
             $scope.message = error.message;
@@ -40,7 +39,5 @@ angular.module('storeApp')
       $scope.toProducts = function() {
         $location.path('/products');
       };
-
-
     }
   ]);

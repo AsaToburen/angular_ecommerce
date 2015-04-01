@@ -2,77 +2,69 @@
 
 angular.module('storeApp')
   .factory('Authentication', ['$firebase', '$q', '$firebaseObject', '$firebaseAuth',
-      '$location', 'FIREBASE_URL',
+    '$location', 'FIREBASE_URL',
 
-      function($firebase, $q, $firebaseObject, $firebaseAuth,
-        $location, FIREBASE_URL) {
+    function($firebase, $q, $firebaseObject, $firebaseAuth,
+      $location, FIREBASE_URL) {
 
-        var ref = new Firebase(FIREBASE_URL);
-        var auth = $firebaseAuth(ref);
+      var ref = new Firebase(FIREBASE_URL);
+      var auth = $firebaseAuth(ref);
 
-        var myObject = {
+      var myObject = {
 
-          ref : new Firebase(FIREBASE_URL),
-          authData: {},
-          userData: {},
+        authData: {},
+        userData: {},
 
-          isLoggedIn: function() {
-            return angular.isDefined(myObject.userData.uid);
-          },
+        isLoggedIn: function() {
+          return angular.isDefined(myObject.userData);
+        },
 
-          login: function(user) {
-            var deferred = $q.defer();
-            auth.$authWithPassword({
-              email: user.email,
-              password: user.password
-            }).then(function(authData) {
-              deferred.resolve(authData);
-              myObject.userData = authData;
-              myObject.uid = authData.uid;
-            var userRef = new Firebase(FIREBASE_URL + 'users/' + authData.uid);
+        login: function(user) {
+          var deferred = $q.defer();
+          auth.$authWithPassword({
+            email: user.email,
+            password: user.password
+          }).then(function(authData) {
+            myObject.userData = authData;
 
-        ref.on('value', function(userProfile) {
-            myObject.userData = userProfile.val().users;
-            deferred.resolve(myObject.userData);
+            var userProfile = $firebaseObject(ref.child('users').child(authData.uid));
+            userProfile.$loaded().then(function() {
+
+              myObject.userData = userProfile;
+              deferred.resolve(myObject.userData);
+            });
           });
-        });
-      return deferred.promise;
-    },
+          return deferred.promise;
+        },
 
-    getUserProfile: function(userId) {
-      var userRef = new Firebase(FIREBASE_URL + 'users/' + userId);
-      var profileRef = userRef.child(userId);
-       return $firebaseObject(profileRef);
+        register: function(user) {
+          return auth.$createUser({
+            email: user.email,
+            password: user.password
+          }).then(function(regUser) {
 
-    },
+            var profileRef = new Firebase(FIREBASE_URL + 'users/' + regUser.uid);
 
-    register: function(user) {
-      return auth.$createUser({
-        email: user.email,
-        password: user.password
-      }).then(function(regUser) {
+            profileRef.set({
 
-        var profileRef = new Firebase(FIREBASE_URL + 'users/' + regUser.uid);
+              date: Firebase.ServerValue.TIMESTAMP,
+              regUser: regUser.uid,
+              firstname: user.firstname,
+              lastname: user.lastname,
+              email: user.email
 
-        profileRef.set({
-
-          date: Firebase.ServerValue.TIMESTAMP,
-          regUser: regUser.uid,
-          firstname: user.firstname,
-          lastname: user.lastname,
-          email: user.email
-
-        }, function(error) {
-          if (error) {
-            console.log("Error:", error);
-          } else {
-            myObject.isLoggedIn();
-            console.log("Profile set successfully!");
-          }
-        });
-      });
+            }, function(error) {
+              if (error) {
+                console.log("Error:", error);
+              } else {
+                myObject.isLoggedIn();
+                console.log("Profile set successfully!");
+              }
+            });
+          });
+        }
+      };
+      return myObject;
     }
-  };
-return myObject;
+  ]);
 
-}]);
