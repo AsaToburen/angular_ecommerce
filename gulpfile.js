@@ -51,11 +51,12 @@ gulp.task('index', function () {
   var target = gulp.src('./app/index.html');
 
 // Concatenate vendor scripts 
-var vendorStream = gulp.src(['./app/bower_components/**/*.js'])
+var vendorStream = gulp.src(['./app/bower_components/**/*.min.js'])
   .pipe(concat('vendors.js'))
   .pipe(gulp.dest('build/'));
  
-  var vendorStream = gulp.src(['./app/bower_components/**/*.js'], {read: false});
+  var vendorStream = gulp.src(['./app/bower_components/**/*.min.js'], {read: false});
+  var vendorMapStream = gulp.src(['./app/bower_components/**/*.min.map.js'], {read: false});
   var otherStream = gulp.src(['./app/scripts/main.js'], {read: false});
   var serviceStream = gulp.src(['./app/services/*.js'], {read: false});
   var directiveStream = gulp.src(['./app/directives/*.js'], {read: false});
@@ -63,7 +64,7 @@ var vendorStream = gulp.src(['./app/bower_components/**/*.js'])
 // Concatenate AND minify app sources 
 
 return target
-  .pipe(inject(series(vendorStream, otherStream, serviceStream, directiveStream, controllerStream), {
+  .pipe(inject(series(vendorStream, vendorMapStream, otherStream, serviceStream, directiveStream, controllerStream), {
       ignorePath: 'app',
       addRootSlash: false
     }))

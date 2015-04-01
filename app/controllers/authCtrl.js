@@ -7,7 +7,6 @@ angular.module('storeApp')
       FIREBASE_URL, $location, Authentication) {
 
       $scope.success = Authentication.isLoggedIn();
-      console.log(Authentication.userData);
 
       $scope.login = function(user) {
         Authentication.login($scope.user)
