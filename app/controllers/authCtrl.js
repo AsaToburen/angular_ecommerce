@@ -3,7 +3,7 @@
 angular.module('storeApp')
   .controller('AuthCtrl', ['$scope', '$cookies', '$cookieStore', '$q', '$rootScope', 
     '$firebaseAuth', 'FIREBASE_URL', '$location', 'Authentication',
-    
+
     function($scope, $cookies, $cookieStore, $q, $rootScope, $firebaseAuth,
       FIREBASE_URL, $location, Authentication) {
 
@@ -27,8 +27,6 @@ angular.module('storeApp')
           }
         });
       };
-
-
 
       $scope.logout = function(user) {
         Authentication.logout($scope.user)

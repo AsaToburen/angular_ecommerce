@@ -1,33 +1,40 @@
 'use strict';
 
 angular.module('storeApp')
-  .controller('DepartmentCtrl', ['$scope', 'currentAuth', '$q', 'productService', 'Authentication', 'deptService', 'cartService',
-   function($scope, currentAuth, $q, productService, Authentication, deptService, cartService) {
+  .controller('DepartmentCtrl', ['$scope', 'Auth', '$q', 'productService', 'Authentication', 'deptService', 'cartService',
+    function($scope, Auth, $q, productService, Authentication, deptService, cartService) {
 
-     $scope.departments = [];
-     $scope.products = [];
-     $scope.items = [];
+      $scope.auth = Auth;
 
-     $scope.firstname = Authentication.userData.firstname;
-     
+      $scope.auth.$onAuth(function(authData) {
+        $scope.authData = authData;
+      });
 
-     $scope.cart = cartService;
-     $scope.dept = deptService;
-     
+      $scope.departments = [];
+      $scope.products = [];
+      $scope.items = [];
 
-     deptService.deptList().then(function(departments){
-         $scope.departments = departments;
-    });
+      $scope.firstname = Authentication.userData.firstname;
 
-    productService.getList().then(function(products){
+
+      $scope.cart = cartService;
+      $scope.dept = deptService;
+
+
+      deptService.deptList().then(function(departments) {
+        $scope.departments = departments;
+      });
+
+      productService.getList().then(function(products) {
         $scope.products = products;
-    });
+      });
 
-    productService.getCategory().then(function(products){
+      productService.getCategory().then(function(products) {
         $scope.products = products;
-    });
+      });
 
-    cartService.itemList().then(function(items){
+      cartService.itemList().then(function(items) {
         $scope.items = items;
-    });
-  }]);
+      });
+    }
+  ]);

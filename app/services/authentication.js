@@ -1,68 +1,31 @@
 'use strict';
 
+angular.module('storeApp').factory("Auth", ["$firebaseAuth", "FIREBASE_URL",
+  function($firebaseAuth, FIREBASE_URL) {
+    var ref = new Firebase(FIREBASE_URL, "example3");
+    return $firebaseAuth(ref);
+  }
+]);
+
+
 angular.module('storeApp')
-  .factory('Authentication', ['$firebase', '$cookieStore', '$cookies', '$q', '$firebaseObject',
+  .factory('Authentication', ['$firebase', '$q', '$firebaseObject',
     '$firebaseAuth', 'FIREBASE_URL',
 
-    function($firebase, $cookieStore, $cookies, $q, $firebaseObject, $firebaseAuth, FIREBASE_URL) {
+    function($firebase, $q, $firebaseObject, $firebaseAuth, FIREBASE_URL) {
 
       var ref = new Firebase(FIREBASE_URL);
       var auth = $firebaseAuth(ref);
 
       var myObject = {
 
+        logAuth : $firebaseAuth(ref),
+
         authData: {},
         userData: {},
 
         isLoggedIn: function() {
           return angular.isDefined(myObject.authData.uid);
-        },
-
-        login: function(user) {
-          var deferred = $q.defer();
-          auth.$authWithPassword({
-            email: user.email,
-            password: user.password
-          }).then(function(authData) {
-            //myObject.isLoggedIn();
-            myObject.userData = authData;
-
-            $cookieStore.put(authData.uid, authData.token);
-
-            var userProfile = $firebaseObject(ref.child('users').child(authData.uid));
-            userProfile.$loaded().then(function() {
-              myObject.userData = userProfile;
-              deferred.resolve(myObject.userData);
-            });
-          });
-          return deferred.promise;
-        },
-
-
-   //     loginWithToken: function(authData) {
-   //       var token = $cookieStore.get(authData.uid);
-   //       var deferred = $q.defer();
-   //       auth.$authWithCustomToken(token)
-   //         .then(function(authData) {
-   //           myObject.userData = authData;
-   //           var userProfile = $firebaseObject(ref.child('users').child(authData.uid));
-   //           userProfile.$loaded().then(function() {
-   //             console.log("Logged in as:", authData.uid);
-   //           }).catch(function(error) {
-   //             console.error("Authentication failed:", error);
-   //           });
-   //         });
-   //       return deferred.promise;
-   //     },
-
-        logout: function(user) {
-          console.log($cookieStore);
-          $cookieStore.remove(myObject.authData.uid);
-          auth.$unauth();
-          console.log('loggedOut');
-          myObject.authData = {};
-          myObject.userData = {};
-          myObject.isLoggedIn();
         },
 
         register: function(user) {
