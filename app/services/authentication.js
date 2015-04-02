@@ -39,21 +39,21 @@ angular.module('storeApp')
         },
 
 
-        loginWithToken: function(authData) {
-          var token = $cookieStore.get(authData.uid);
-          var deferred = $q.defer();
-          auth.$authWithCustomToken(token)
-            .then(function(authData) {
-              myObject.userData = authData;
-              var userProfile = $firebaseObject(ref.child('users').child(authData.uid));
-              userProfile.$loaded().then(function() {
-                console.log("Logged in as:", authData.uid);
-              }).catch(function(error) {
-                console.error("Authentication failed:", error);
-              });
-            });
-          return deferred.promise;
-        },
+   //     loginWithToken: function(authData) {
+   //       var token = $cookieStore.get(authData.uid);
+   //       var deferred = $q.defer();
+   //       auth.$authWithCustomToken(token)
+   //         .then(function(authData) {
+   //           myObject.userData = authData;
+   //           var userProfile = $firebaseObject(ref.child('users').child(authData.uid));
+   //           userProfile.$loaded().then(function() {
+   //             console.log("Logged in as:", authData.uid);
+   //           }).catch(function(error) {
+   //             console.error("Authentication failed:", error);
+   //           });
+   //         });
+   //       return deferred.promise;
+   //     },
 
         logout: function(user) {
           console.log($cookieStore);

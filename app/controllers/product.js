@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('storeApp')
-  .controller('DepartmentCtrl', ['$scope', '$q', 'productService', 'Authentication', 'deptService', 'cartService',
-   function($scope, $q, productService, Authentication, deptService, cartService) {
+  .controller('DepartmentCtrl', ['$scope', 'currentAuth', '$q', 'productService', 'Authentication', 'deptService', 'cartService',
+   function($scope, currentAuth, $q, productService, Authentication, deptService, cartService) {
 
      $scope.departments = [];
      $scope.products = [];
@@ -30,8 +30,4 @@ angular.module('storeApp')
     cartService.itemList().then(function(items){
         $scope.items = items;
     });
-
-
-    
-
   }]);

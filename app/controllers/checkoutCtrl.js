@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('storeApp')
-  .controller('checkoutCtrl', ['$scope', 'cartService',
-    function($scope, cartService) {
+  .controller('checkoutCtrl', ['$scope', 'currentAuth', 'cartService',
+    function($scope, currentAuth, cartService) {
 
       $scope.checkout = cartService;
 

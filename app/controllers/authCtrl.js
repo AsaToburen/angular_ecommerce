@@ -1,21 +1,34 @@
 'use strict';
 
 angular.module('storeApp')
-  .controller('AuthCtrl', ['$scope', '$cookies', '$cookieStore', '$q', '$rootScope', '$firebaseAuth', 'FIREBASE_URL',
-    '$location', 'Authentication',
+  .controller('AuthCtrl', ['$scope', '$cookies', '$cookieStore', '$q', '$rootScope', 
+    '$firebaseAuth', 'FIREBASE_URL', '$location', 'Authentication',
+    
     function($scope, $cookies, $cookieStore, $q, $rootScope, $firebaseAuth,
       FIREBASE_URL, $location, Authentication) {
 
-      $scope.success = Authentication.isLoggedIn;
+      $scope.isLoggedIn = Authentication.isLoggedIn();
 
-      $scope.login = function(user) {
-        Authentication.login($scope.user)
-          .then(function(user) {
+      var ref = new Firebase(FIREBASE_URL);
+
+      $scope.login = function() {
+        $scope.authData = null;
+        $scope.error = null;
+
+        ref.authWithPassword({
+          email: $scope.user.email,
+          password: $scope.user.password,
+        }, function(error, authData) {
+          if (error) {
+            console.log("Login Failed!", error);
+          } else {
+            console.log("Authenticated successfully with payload:", authData);
             $location.path('/products');
-          }).catch(function(error) {
-            $scope.message = error.message;
-          });
+          }
+        });
       };
+
+
 
       $scope.logout = function(user) {
         Authentication.logout($scope.user)
@@ -37,7 +50,6 @@ angular.module('storeApp')
           });
       };
 
-  
       $scope.toRegister = function() {
         $location.path('/register');
       };
