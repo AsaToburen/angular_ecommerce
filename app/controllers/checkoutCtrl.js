@@ -6,13 +6,9 @@ angular.module('storeApp')
 
       $scope.auth = Authentication;
 
-      //$scope.auth.$onAuth(function(authData) {
-      //  $scope.authData = authData;
-      //});
-
       $scope.checkout = cartService;
 
-      cartService.checkout().then(function(items) {
+       cartService.checkout().then(function(items) {
         $scope.items = items.cart.contents;
         $scope.totals = items.cart.totals.pre_discount.rounded;
       });

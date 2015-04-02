@@ -11,8 +11,8 @@ angular.module('storeApp')
 
       function($scope, Authentication) {
 
-        $scope.firstname = Authentication.userData.firstname;
-        $scope.auth = Authentication;
+        $scope.auth = Authentication.auth;
+        $scope.logout = Authentication.logout;
 
       }]
     };

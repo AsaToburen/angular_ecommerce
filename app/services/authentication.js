@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('storeApp')
-  .factory('Authentication', ['$firebase', '$location', '$anchorScroll', '$q', '$firebaseObject',
+  .factory('Authentication', ['$firebase', '$location',
     '$firebaseAuth', 'FIREBASE_URL',
 
-    function($firebase, $location, $anchorScroll, $q, $firebaseObject, $firebaseAuth, FIREBASE_URL) {
+    function($firebase, $location, $firebaseAuth, FIREBASE_URL) {
 
       var ref = new Firebase(FIREBASE_URL);
       var auth = $firebaseAuth(ref);
@@ -16,22 +16,24 @@ angular.module('storeApp')
         authData: {},
         userData: {},
 
-        login: function() {
-
-
+        login: function(user) {
+          auth.$authWithPassword({
+            email: user.email,
+            password: user.password
+          }).then(function(authData) {
+            console.log("Authenticated successfully with payload:", authData);
+          });
 
         },
         logout: function() {
           auth.$unauth();
           $location.path('/login');
-          $location.hash('auth');
-          $anchorScroll();
         },
 
-        register: function(user) {
+        register: function(userInput) {
           return auth.$createUser({
-            email: user.email,
-            password: user.password
+            email: userInput.email,
+            password: userInput.password
           }).then(function(regUser) {
 
 
@@ -40,9 +42,9 @@ angular.module('storeApp')
 
               date: Firebase.ServerValue.TIMESTAMP,
               regUser: regUser.uid,
-              firstname: user.firstname,
-              lastname: user.lastname,
-              email: user.email
+              firstname: userInput.firstname,
+              lastname: userInput.lastname,
+              email: userInput.email
 
             }, function(error) {
               if (error) {

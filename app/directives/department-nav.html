@@ -1,9 +1,7 @@
 <aside class="product-nav">
-    <h1 ><i ng-show="dept.loading" class="fa fa-circle-o-notch fa-3x fa-spin"></i></h1>
     <ul>
         <li ng-class="{ active: isActive('/products/{{department.id}}') }" ng-repeat="department in departments">
             <a ng-href="#/products/{{department.id}}">{{department.title}}</a>
-            <i ng-if="parent.hasClass('active')" class="spinner spinner--small"></i>
         </li>
     </ul>
 </aside>

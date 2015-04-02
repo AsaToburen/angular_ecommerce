@@ -2,14 +2,10 @@
 
 
 angular.module('storeApp')
-  .controller('DepartmentCtrl', ['$scope', '$q', 'productService', 'Authentication', 'deptService', 'cartService',
-    function($scope, $q, productService, Authentication, deptService, cartService) {
+  .controller('DepartmentCtrl', ['$scope', 'productService', 'Authentication', 'deptService', 'cartService',
+    function($scope, productService, Authentication, deptService, cartService) {
 
       $scope.auth = Authentication;
-
-   //   $scope.auth.$onAuth(function(authData) {
-   //     $scope.authData = authData;
-   //   });
 
       $scope.departments = [];
       $scope.products = [];
@@ -17,10 +13,8 @@ angular.module('storeApp')
 
       $scope.firstname = Authentication.userData.firstname;
 
-
       $scope.cart = cartService;
       $scope.dept = deptService;
-
 
       deptService.deptList().then(function(departments) {
         $scope.departments = departments;

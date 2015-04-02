@@ -2,28 +2,16 @@
 
 angular.module('storeApp')
   .controller('AuthCtrl', ['$scope', 
-   'FIREBASE_URL', '$location', '$anchorScroll', 'Authentication',
+   'FIREBASE_URL', '$location', 'Authentication',
 
-    function($scope, FIREBASE_URL, $location, $anchorScroll, Authentication) {
+    function($scope, FIREBASE_URL, $location, Authentication) {
 
 
       var ref = new Firebase(FIREBASE_URL);
 
-      $scope.login = function() {
-        $scope.authData = null;
-        $scope.error = null;
-
-        ref.authWithPassword({
-          email: $scope.user.email,
-          password: $scope.user.password,
-        }, function(error, authData) {
-          if (error) {
-            console.log("Login Failed!", error);
-          } else {
-            $location.path('/products');
-            console.log("Authenticated successfully with payload:", authData);
-          }
-        });
+      $scope.login = function(user) {
+        Authentication.login($scope.user);
+        $location.path('/products');
       };
 
       $scope.register = function(user) {
@@ -46,8 +34,6 @@ angular.module('storeApp')
 
       $scope.toProducts = function() {
         $location.path('/products');
-        $location.hash('title');
-        $anchorScroll();
       };
     }
   ]);
