@@ -8,7 +8,8 @@
   
         <legend>Login</legend>
         <p class="success" ng-show="loginForm.$submitted && authData">Success!!</p>
-        <p class="error" ng-show="loginForm.$submitted && error">Provide a valid email and password</p>
+        <p class="error" ng-show="loginForm.$submitted && error">Provide a valid 
+        email and password</p>
         <ul>
           <li>Email:</li>
           <li>Password:</li>
@@ -20,7 +21,6 @@
           ng-model="user.email"
           ng-required="true"
           autofocus><br>
-  
        
         <input 
           type="password"
@@ -28,7 +28,6 @@
           ng-model="user.password"
           ng-required="true"
           ><br>
-  
   
       <button 
          ng-disabled="loginForm.$invalid"

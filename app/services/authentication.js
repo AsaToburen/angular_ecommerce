@@ -11,19 +11,16 @@ angular.module('storeApp')
 
       var myObject = {
 
-       auth : $firebaseAuth(ref),
+        auth: $firebaseAuth(ref),
 
         authData: {},
         userData: {},
 
-        login: function(){
+        login: function() {
 
 
-          
+
         },
-
-
-
         logout: function() {
           auth.$unauth();
           $location.path('/login');

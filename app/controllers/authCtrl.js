@@ -2,9 +2,9 @@
 
 angular.module('storeApp')
   .controller('AuthCtrl', ['$scope', 
-   'FIREBASE_URL', '$location', 'Authentication',
+   'FIREBASE_URL', '$location', '$anchorScroll', 'Authentication',
 
-    function($scope, FIREBASE_URL, $location, Authentication) {
+    function($scope, FIREBASE_URL, $location, $anchorScroll, Authentication) {
 
 
       var ref = new Firebase(FIREBASE_URL);
@@ -46,6 +46,8 @@ angular.module('storeApp')
 
       $scope.toProducts = function() {
         $location.path('/products');
+        $location.hash('title');
+        $anchorScroll();
       };
     }
   ]);

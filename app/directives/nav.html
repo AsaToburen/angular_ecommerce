@@ -1,5 +1,5 @@
 <nav>
-  <h1>Everything Must Go</h1>
+  <h1 id="title">Everything Must Go</h1>
   <ul class="access-links">
     <li ng-if="auth.auth.$getAuth()">Welcome back {{ firstname }}!</li>
     <li class="logout" ng-if="auth.auth.$getAuth()" ng-click="auth.logout()">Logout</li>
