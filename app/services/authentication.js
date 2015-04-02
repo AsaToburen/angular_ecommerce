@@ -1,31 +1,34 @@
 'use strict';
 
-angular.module('storeApp').factory("Auth", ["$firebaseAuth", "FIREBASE_URL",
-  function($firebaseAuth, FIREBASE_URL) {
-    var ref = new Firebase(FIREBASE_URL, "example3");
-    return $firebaseAuth(ref);
-  }
-]);
-
 angular.module('storeApp')
-  .factory('Authentication', ['$firebase', '$location', '$q', '$firebaseObject',
+  .factory('Authentication', ['$firebase', '$location', '$anchorScroll', '$q', '$firebaseObject',
     '$firebaseAuth', 'FIREBASE_URL',
 
-    function($firebase, $location, $q, $firebaseObject, $firebaseAuth, FIREBASE_URL) {
+    function($firebase, $location, $anchorScroll, $q, $firebaseObject, $firebaseAuth, FIREBASE_URL) {
 
       var ref = new Firebase(FIREBASE_URL);
       var auth = $firebaseAuth(ref);
 
       var myObject = {
 
-        logAuth : $firebaseAuth(ref),
+       auth : $firebaseAuth(ref),
 
         authData: {},
         userData: {},
 
-        logout: function(){
-          myObject.logAuth.$unauth();
+        login: function(){
+
+
+          
+        },
+
+
+
+        logout: function() {
+          auth.$unauth();
           $location.path('/login');
+          $location.hash('auth');
+          $anchorScroll();
         },
 
         register: function(user) {
@@ -33,6 +36,7 @@ angular.module('storeApp')
             email: user.email,
             password: user.password
           }).then(function(regUser) {
+
 
             var profileRef = new Firebase(FIREBASE_URL + 'users/' + regUser.uid);
             profileRef.set({

@@ -1,11 +1,10 @@
 'use strict';
 
 angular.module('storeApp')
-  .controller('AuthCtrl', ['$scope', '$cookies', '$cookieStore', '$q', '$rootScope', 
-    '$firebaseAuth', 'FIREBASE_URL', '$location', 'Authentication',
+  .controller('AuthCtrl', ['$scope', 
+   'FIREBASE_URL', '$location', 'Authentication',
 
-    function($scope, $cookies, $cookieStore, $q, $rootScope, $firebaseAuth,
-      FIREBASE_URL, $location, Authentication) {
+    function($scope, FIREBASE_URL, $location, Authentication) {
 
 
       var ref = new Firebase(FIREBASE_URL);
@@ -25,16 +24,6 @@ angular.module('storeApp')
             console.log("Authenticated successfully with payload:", authData);
           }
         });
-      };
-
-      $scope.logout = function(user) {
-        Authentication.logout($scope.user)
-        $scope.digest()
-          .then(function(user) {
-            $location.path('/login');
-          }).catch(function(error) {
-            $scope.message = error.message;
-          });
       };
 
       $scope.register = function(user) {

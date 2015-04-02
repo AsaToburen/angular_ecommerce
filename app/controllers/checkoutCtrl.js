@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('storeApp')
-  .controller('checkoutCtrl', ['$scope', 'Auth', 'cartService',
-    function($scope, Auth, currentAuth, cartService) {
+  .controller('checkoutCtrl', ['$scope', 'Authentication', 'cartService',
+    function($scope, Authentication, cartService) {
 
-      $scope.auth = Auth;
+      $scope.auth = Authentication;
 
-      $scope.auth.$onAuth(function(authData) {
-        $scope.authData = authData;
-      });
+      //$scope.auth.$onAuth(function(authData) {
+      //  $scope.authData = authData;
+      //});
 
       $scope.checkout = cartService;
 

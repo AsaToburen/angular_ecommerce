@@ -153,6 +153,9 @@ div {
         color: #dedede;
         
        }
+       .logout {
+        cursor: pointer;
+       }
        @include addSeparator('li', '|', 1em);
        li {
         

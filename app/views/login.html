@@ -1,5 +1,5 @@
 <section class="Auth">
-  <div class="auth-container">
+  <div class="auth-container" id="auth">
     <form class="login" name="loginForm" 
       ng-submit="login()" 
       novalidate>
@@ -7,7 +7,8 @@
       <fieldset>
   
         <legend>Login</legend>
-        <p class="error" ng-show="loginForm.$submitted && success === true">Provide a valid email and password</p>
+        <p class="success" ng-show="loginForm.$submitted && authData">Success!!</p>
+        <p class="error" ng-show="loginForm.$submitted && error">Provide a valid email and password</p>
         <ul>
           <li>Email:</li>
           <li>Password:</li>

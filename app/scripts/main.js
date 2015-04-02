@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('storeApp', ['storeApp.moltin', 'firebase', 'ngRoute', 'ngAnimate', 'ngCookies'])
+angular.module('storeApp', ['storeApp.moltin', 'firebase', 'ngRoute', 'ngAnimate'])
   .run(["$rootScope", "$location", function($rootScope, $location) {
     $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
 
@@ -28,11 +28,6 @@ angular.module('storeApp', ['storeApp.moltin', 'firebase', 'ngRoute', 'ngAnimate
       .when('/products', {
         templateUrl: 'views/store.html',
         controller: 'DepartmentCtrl',
-        resolve: {
-          "currentAuth": ["Auth", function(Auth) {
-            return Auth.$waitForAuth();
-          }]
-        }
       })
       .when('/products/:id', {
         templateUrl: 'views/store.html',
@@ -41,13 +36,8 @@ angular.module('storeApp', ['storeApp.moltin', 'firebase', 'ngRoute', 'ngAnimate
       .when('/checkout', {
         templateUrl: 'views/checkout.html',
         controller: 'checkoutCtrl',
-        resolve: {
-          "currentAuth": ["Auth", function(Auth) {
-            return Auth.$requireAuth();
-          }]
-        }
       })
       .otherwise({
         redirectTo: '/'
       });
-  }])
+  }]);

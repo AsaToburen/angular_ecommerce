@@ -110,6 +110,8 @@ div nav {
     float: right;
     margin-right: 2em;
     color: #dedede; }
+  div nav .logout {
+    cursor: pointer; }
   div nav li + li:before {
     content: "|";
     padding: 0 1em; }

@@ -7,12 +7,11 @@ angular.module('storeApp')
       templateUrl: 'directives/nav.html',
       replace: true,
       scope: true,
-      controller: ['$scope', '$location', 'Authentication', 
+      controller: ['$scope', 'Authentication', 
 
-      function($scope, $location, Authentication) {
+      function($scope, Authentication) {
 
         $scope.firstname = Authentication.userData.firstname;
-        $scope.isLoggedIn = Authentication.isLoggedIn;
         $scope.auth = Authentication;
 
       }]

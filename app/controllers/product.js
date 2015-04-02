@@ -1,14 +1,15 @@
 'use strict';
 
+
 angular.module('storeApp')
-  .controller('DepartmentCtrl', ['$scope', 'Auth', '$q', 'productService', 'Authentication', 'deptService', 'cartService',
-    function($scope, Auth, $q, productService, Authentication, deptService, cartService) {
+  .controller('DepartmentCtrl', ['$scope', '$q', 'productService', 'Authentication', 'deptService', 'cartService',
+    function($scope, $q, productService, Authentication, deptService, cartService) {
 
-      $scope.auth = Auth;
+      $scope.auth = Authentication;
 
-      $scope.auth.$onAuth(function(authData) {
-        $scope.authData = authData;
-      });
+   //   $scope.auth.$onAuth(function(authData) {
+   //     $scope.authData = authData;
+   //   });
 
       $scope.departments = [];
       $scope.products = [];
