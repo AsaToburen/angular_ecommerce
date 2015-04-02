@@ -7,7 +7,6 @@ angular.module('storeApp')
     function($scope, $cookies, $cookieStore, $q, $rootScope, $firebaseAuth,
       FIREBASE_URL, $location, Authentication) {
 
-      $scope.isLoggedIn = Authentication.isLoggedIn();
 
       var ref = new Firebase(FIREBASE_URL);
 
@@ -22,8 +21,8 @@ angular.module('storeApp')
           if (error) {
             console.log("Login Failed!", error);
           } else {
-            console.log("Authenticated successfully with payload:", authData);
             $location.path('/products');
+            console.log("Authenticated successfully with payload:", authData);
           }
         });
       };

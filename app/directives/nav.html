@@ -1,10 +1,10 @@
 <nav>
   <h1>Everything Must Go</h1>
   <ul class="access-links">
-    <li ng-if="isLoggedIn">Welcome back {{ firstname }}!</li>
-    <li ng-if="isLoggedIn"><a ng-click="auth.logAuth.$unauth()">Logout</a></li>
-    <li  ng-hide="isLoggedIn"><a href="#/register">Register</a></li>
-    <li ng-hide="isLoggedIn"><a href="#/login">Login</a></li>
+    <li ng-if="auth.logAuth.$getAuth()">Welcome back {{ firstname }}!</li>
+    <li ng-if="auth.logAuth.$getAuth()" ng-click="auth.logout()">Logout</li>
+    <li  ng-hide="auth.logAuth.$getAuth()"><a href="#/register">Register</a></li>
+    <li ng-hide="auth.logAuth.$getAuth()"><a href="#/login">Login</a></li>
   </ul>
   <ul class="nav-links">
     <li><a href="#/">Home</a></li>

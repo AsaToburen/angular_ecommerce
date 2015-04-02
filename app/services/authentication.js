@@ -7,12 +7,11 @@ angular.module('storeApp').factory("Auth", ["$firebaseAuth", "FIREBASE_URL",
   }
 ]);
 
-
 angular.module('storeApp')
-  .factory('Authentication', ['$firebase', '$q', '$firebaseObject',
+  .factory('Authentication', ['$firebase', '$location', '$q', '$firebaseObject',
     '$firebaseAuth', 'FIREBASE_URL',
 
-    function($firebase, $q, $firebaseObject, $firebaseAuth, FIREBASE_URL) {
+    function($firebase, $location, $q, $firebaseObject, $firebaseAuth, FIREBASE_URL) {
 
       var ref = new Firebase(FIREBASE_URL);
       var auth = $firebaseAuth(ref);
@@ -24,8 +23,9 @@ angular.module('storeApp')
         authData: {},
         userData: {},
 
-        isLoggedIn: function() {
-          return angular.isDefined(myObject.authData.uid);
+        logout: function(){
+          myObject.logAuth.$unauth();
+          $location.path('/login');
         },
 
         register: function(user) {
@@ -47,7 +47,6 @@ angular.module('storeApp')
               if (error) {
                 console.log("Error:", error);
               } else {
-                myObject.isLoggedIn();
                 console.log("Profile set successfully!");
               }
             });
