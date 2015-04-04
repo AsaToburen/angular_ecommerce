@@ -23,9 +23,9 @@ module.exports = function(config) {
       './app/bower_components/angular-route/*.min.js',
       './app/bower_components/moltin/*.min.js',
       './app/scripts/*.js',
-      './app/controllers/*.js',
       './app/services/*.js',
       './app/directives/*.js',
+      './app/controllers/*.js',
       './app/**/*Spec.js',
       './app/directives/*.html'
     ],
@@ -36,12 +36,12 @@ module.exports = function(config) {
 
 
     preprocessors: {
-      '**/*.html': 'html2js'
+      './app/directives/*.html': 'html2js'
     },
 
     ngHtml2JsPreprocessor: {
       // strip app from the file path
-      stripPrefix: 'app/directives/'
+      stripPrefix: './app/directives/'
     },
 
     // test results reporter to use
