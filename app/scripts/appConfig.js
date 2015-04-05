@@ -1,16 +1,5 @@
-'use strict';
 
-angular.module('storeApp', ['storeApp.moltin', 'firebase', 'ngRoute', 'ngAnimate'])
-  .run(["$rootScope", "$location", function($rootScope, $location) {
-    $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
-
-      if (error === "AUTH_REQUIRED") {
-        $location.path("/login");
-      }
-    });
-  }])
-
-.constant('FIREBASE_URL', 'https://shopangular.firebaseio.com/')
+angular.module('storeApp')
   .config(['$routeProvider', function($routeProvider) {
 
     $routeProvider.when('/', {

@@ -36,8 +36,10 @@
           ng-model="user.password">
           <br>
         <p>{{error.message}}</p>
-        <button ng-click="toLogin()">Login</button>
-        <button ng-disabled="registerForm.$invalid" name="registerForm" type="submit">Register</button>
+        <div>
+          <button ng-click="toLogin()">Login</button>
+          <button ng-disabled="registerForm.$invalid" name="registerForm" type="submit">Register</button>
+        </div>
       </fieldset>
     </form>
   </div>

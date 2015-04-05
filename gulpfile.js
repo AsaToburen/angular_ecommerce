@@ -57,7 +57,7 @@ var vendorStream = gulp.src(['./app/bower_components/**/*.min.js'])
  
   var vendorStream = gulp.src(['./app/bower_components/**/*.min.js'], {read: false});
   var vendorMapStream = gulp.src(['./app/bower_components/**/*.min.map.js'], {read: false});
-  var otherStream = gulp.src(['./app/scripts/main.js'], {read: false});
+  var otherStream = gulp.src(['./app/scripts/*.js'], {read: false});
   var serviceStream = gulp.src(['./app/services/*.js'], {read: false});
   var directiveStream = gulp.src(['./app/directives/*.js'], {read: false});
   var controllerStream = gulp.src(['./app/controllers/*.js'], {read: false});

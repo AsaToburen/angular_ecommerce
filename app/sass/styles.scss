@@ -306,7 +306,7 @@ div {
         }
       }
     }
-    div.product-container {
+    section.product-container {
         float: right;
         width: 63.3%;
         border: 1px solid #000;
@@ -510,7 +510,7 @@ div {
       
       width: 100%;
       position: absolute;
-      height: 50em;
+      height: 40em;
       background-image: url('../images/auth_bg.jpg');
       background-repeat: no-repeat;
       background-size: 100%;
@@ -532,7 +532,6 @@ div {
       background-color: #EAEAE6;
       font-size: 1.2em;
       text-align: right;
-      padding-bottom: 2em;
     }
     
     ul {
@@ -545,18 +544,25 @@ div {
     }
 
     input {
-      margin: 2.5em 7em 0em 2em;
+      margin: 2.5em 5.3em 0em 2em;
       height: 2em;
-      float: right;
+      float: right; 
     }
-    button {
-      clear: both;
-      position: relative;
-      right: 4em;
-      top: 2em;
-      padding: 1em;
-      margin-right: 2em;
-    }
+    div {
+      height: 2em;
+      overflow: auto;
+      width: 14em;
+      padding: .5em 0em;
+      margin-left: 3em;
+      margin-bottom: 1em;
+        button {
+          margin-top: 1em;
+          margin-left: 1em;
+          display: inline-block;
+          float: left;
+          padding: 1em;
+        }
+      }
   }
 
   form.login {

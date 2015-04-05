@@ -28,12 +28,11 @@
           ng-model="user.password"
           ng-required="true"
           ><br>
-  
-      <button 
-         ng-disabled="loginForm.$invalid"
-         type="submit">Login</button>
-      <button ng-click="toRegister()">Register</button>
-      <button ng-click="toProducts()">Continue</button>
+      <div>
+        <button ng-disabled="loginForm.$invalid" type="submit">Login</button>
+        <button ng-click="toRegister()">Register</button>
+        <button ng-click="toProducts()">Continue</button>
+      </div>
       </fieldset>
     </form>
   </div>

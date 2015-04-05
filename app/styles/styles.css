@@ -224,7 +224,7 @@ section.products {
           color: #c0cad6; }
     section.products aside ul li.active {
       background-color: #808080; }
-  section.products div.product-container {
+  section.products section.product-container {
     float: right;
     width: 63.3%;
     border: 1px solid #000;
@@ -236,20 +236,20 @@ section.products {
     position: relative;
     left: -14%;
     background-color: #fff; }
-    section.products div.product-container div.item.ng-enter {
+    section.products section.product-container div.item.ng-enter {
       opacity: 0; }
-    section.products div.product-container div.item {
+    section.products section.product-container div.item {
       width: 30%;
       height: 30%;
       margin: .5em .7em;
       text-align: center;
       position: relative;
       transition: opacity .5s ease; }
-      section.products div.product-container div.item:hover button {
+      section.products section.product-container div.item:hover button {
         display: block; }
-      section.products div.product-container div.item:hover img {
+      section.products section.product-container div.item:hover img {
         margin-top: 2.5%; }
-      section.products div.product-container div.item img {
+      section.products section.product-container div.item img {
         transition: all;
         max-height: 125px;
         margin-top: 4%;
@@ -257,16 +257,16 @@ section.products {
         -moz-transition: margin-top ease .3s;
         -o-transition: margin-top ease .3s;
         transition: margin-top ease .3s; }
-      section.products div.product-container div.item div {
+      section.products section.product-container div.item div {
         position: absolute;
         margin: auto;
         left: 0;
         bottom: 2em;
         right: 0; }
-      section.products div.product-container div.item span + span:before {
+      section.products section.product-container div.item span + span:before {
         content: "|";
         padding: 0 1em; }
-      section.products div.product-container div.item button {
+      section.products section.product-container div.item button {
         display: none;
         width: 100%;
         position: absolute;
@@ -384,7 +384,7 @@ div.cart-container {
 section.Auth {
   width: 100%;
   position: absolute;
-  height: 50em;
+  height: 40em;
   background-image: url("../images/auth_bg.jpg");
   background-repeat: no-repeat;
   background-size: 100%; }
@@ -400,24 +400,29 @@ div.auth-container {
   div.auth-container fieldset {
     background-color: #EAEAE6;
     font-size: 1.2em;
-    text-align: right;
-    padding-bottom: 2em; }
+    text-align: right; }
   div.auth-container ul {
     float: left;
     margin-left: 4.5em; }
     div.auth-container ul li {
       margin: 1.85em 0em; }
   div.auth-container input {
-    margin: 2.5em 7em 0em 2em;
+    margin: 2.5em 5.3em 0em 2em;
     height: 2em;
     float: right; }
-  div.auth-container button {
-    clear: both;
-    position: relative;
-    right: 4em;
-    top: 2em;
-    padding: 1em;
-    margin-right: 2em; }
+  div.auth-container div {
+    height: 2em;
+    overflow: auto;
+    width: 14em;
+    padding: .5em 0em;
+    margin-left: 3em;
+    margin-bottom: 1em; }
+    div.auth-container div button {
+      margin-top: 1em;
+      margin-left: 1em;
+      display: inline-block;
+      float: left;
+      padding: 1em; }
 
 form.login button {
   margin-right: 1em; }

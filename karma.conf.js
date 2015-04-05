@@ -17,16 +17,17 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      
       './app/bower_components/angular/angular.min.js',
       './app/bower_components/angular-mocks/angular-mocks.js',
-      './app/bower_components/angular-animate/*.min.js',
-      './app/bower_components/angular-route/*.min.js',
-      './app/bower_components/moltin/*.min.js',
-      './app/scripts/*.js',
+      './app/bower_components/angular-animate/angular-animate.min.js',
+      './app/bower_components/angular-route/angular-route.min.js',
+      './app/bower_components/moltin/moltin.min.js',
       './app/services/*.js',
+      './app/scripts/*.js',
       './app/directives/*.js',
       './app/controllers/*.js',
-      './app/**/*Spec.js',
+      './app/testing/*.js',
       './app/directives/*.html'
     ],
 
