@@ -21,6 +21,7 @@ angular.module('storeApp')
             email: user.email,
             password: user.password
           }).then(function(authData) {
+            console.log(JSON.stringify(authData));
             console.log("Authenticated successfully with payload:", authData);
           });
 
@@ -35,7 +36,6 @@ angular.module('storeApp')
             email: userInput.email,
             password: userInput.password
           }).then(function(regUser) {
-
 
             var profileRef = new Firebase(FIREBASE_URL + 'users/' + regUser.uid);
             profileRef.set({

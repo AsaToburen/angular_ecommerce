@@ -16,6 +16,7 @@ angular.module('storeApp')
           $q.when(MoltinAuth).then(function(moltin) {
             moltin.Category.List(null, function(departments){
               deferred.resolve(departments);
+              console.log(JSON.stringify(departments));
                deptObj.loading = false;
             });
           });

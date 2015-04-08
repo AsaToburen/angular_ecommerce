@@ -5,57 +5,55 @@ angular.module('storeApp')
 
     var cartObj = {
 
-      loading : false,
+      loading: false,
 
-      itemList : function () {
+      itemList: function() {
 
         cartObj.loading = true;
-       
+
         var deferred = $q.defer();
         $q.when(MoltinAuth).then(function(moltin) {
           moltin.Cart.Contents(function(items) {
             deferred.resolve(items);
             cartObj.loading = false;
           });
-      })
-       return deferred.promise;
+        })
+        return deferred.promise;
       },
 
-      addItem : function(itemID) {
+      addItem: function(itemID) {
 
         var deferred = $q.defer();
         $q.when(MoltinAuth).then(function(moltin) {
           moltin.Cart.Insert(itemID, 1, null, function(cart) {
-          deferred.resolve(cart);
+            deferred.resolve(cart);
           });
         })
         return deferred.promise;
       },
 
-      contentLoaded : true,
+      contentLoaded: true,
 
-      checkout : function() {
+      checkout: function() {
 
         cartObj.contentLoaded = false;
 
         var deferred = $q.defer();
         $q.when(MoltinAuth).then(function(moltin) {
           moltin.Cart.Checkout(function(cart) {
-          deferred.resolve(cart);
-          cartObj.contentLoaded = true;
-          
+            deferred.resolve(cart);
+            cartObj.contentLoaded = true;
           });
         })
         return deferred.promise;
       },
 
-      toProducts : function() {
+      toProducts: function() {
 
         $location.path('/products');
 
       }
-
     };
 
     return cartObj;
-});
+  });

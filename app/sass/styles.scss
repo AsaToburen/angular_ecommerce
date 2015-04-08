@@ -89,6 +89,10 @@
 
 }
 
+[ng\:cloak], [ng-cloak], .ng-cloak {
+    display: none;
+}
+
 
 .spinner--small { font-size: 24px; }
 .spinner--large { font-size: 64px; }
@@ -240,6 +244,7 @@ div {
     div.location-info {
 
       display: inline-block;
+      width: 23%;
       margin: 0 1em 0 2em;
       border: 1px solid #000;
       padding: .5em 4em 0 1.5em;
@@ -259,9 +264,9 @@ div {
         display: inline-block; 
         border-left: 2px solid #dedede;
         border-right: 2px solid #dedede;
-        padding: 0 2em;
-        margin-left: 2em;
+        margin-left: 1em;
         background-color: #fff;
+        width: 25%;
     }
   }  
 
@@ -510,7 +515,7 @@ div {
       
       width: 100%;
       position: absolute;
-      height: 40em;
+      height: 50em;
       background-image: url('../images/auth_bg.jpg');
       background-repeat: no-repeat;
       background-size: 100%;

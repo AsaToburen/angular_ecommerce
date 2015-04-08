@@ -23,12 +23,15 @@ module.exports = function(config) {
       './app/bower_components/angular-animate/angular-animate.min.js',
       './app/bower_components/angular-route/angular-route.min.js',
       './app/bower_components/moltin/moltin.min.js',
+      'https://cdn.firebase.com/js/client/2.2.2/firebase.js',
+      'https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js',
+      './app/scripts/app.js',
+      './app/scripts/appConfig.js',
       './app/services/*.js',
-      './app/scripts/*.js',
       './app/directives/*.js',
       './app/controllers/*.js',
-      './app/testing/*.js',
-      './app/directives/*.html'
+      './app/directives/*.html',
+      './app/testing/*.js'
     ],
 
 
@@ -42,7 +45,7 @@ module.exports = function(config) {
 
     ngHtml2JsPreprocessor: {
       // strip app from the file path
-      stripPrefix: './app/directives/'
+      stripPrefix: './app/'
     },
 
     // test results reporter to use

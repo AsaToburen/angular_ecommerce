@@ -1,5 +1,5 @@
-<section class="product-container">
-        <div class="item" ng-repeat="product in products">
+<section ng-cloak class="product-container">
+        <div ng-cloak class="item" ng-repeat="product in products">
             <img ng-src='{{product.images[0].url.http}}' width="100px" alt="{{product.title}}">
             <div class="detail">
                 <span>{{product.title}}</span>

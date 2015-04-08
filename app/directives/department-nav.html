@@ -1,4 +1,4 @@
-<aside class="product-nav">
+<aside ng-cloak  class="product-nav">
     <ul>
         <li ng-class="{ active: isActive('/products/{{department.id}}') }" ng-repeat="department in departments">
             <a ng-href="#/products/{{department.id}}">{{department.title}}</a>
