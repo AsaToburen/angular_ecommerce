@@ -14,6 +14,7 @@ angular.module('storeApp')
           var deferred = $q.defer();
 
           $q.when(MoltinAuth).then(function(moltin) {
+            console.log(moltin);
             moltin.Category.List(null, function(departments){
               deferred.resolve(departments);
               console.log(JSON.stringify(departments));

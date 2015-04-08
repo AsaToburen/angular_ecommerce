@@ -26,6 +26,7 @@ angular.module('storeApp')
         var deferred = $q.defer();
         $q.when(MoltinAuth).then(function(moltin) {
           moltin.Cart.Insert(itemID, 1, null, function(cart) {
+           console.log(itemID);
             deferred.resolve(cart);
           });
         })

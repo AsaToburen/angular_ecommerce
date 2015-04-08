@@ -17,11 +17,11 @@ angular.module('storeApp')
         userData: {},
 
         login: function(user) {
+          console.log(user);
           auth.$authWithPassword({
             email: user.email,
             password: user.password
           }).then(function(authData) {
-            console.log(JSON.stringify(authData));
             console.log("Authenticated successfully with payload:", authData);
           });
 
@@ -32,11 +32,13 @@ angular.module('storeApp')
         },
 
         register: function(userInput) {
+          console.log(userInput);
           return auth.$createUser({
             email: userInput.email,
             password: userInput.password
           }).then(function(regUser) {
 
+            console.log(regUser);
             var profileRef = new Firebase(FIREBASE_URL + 'users/' + regUser.uid);
             profileRef.set({
 

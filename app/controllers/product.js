@@ -1,6 +1,5 @@
 'use strict';
 
-
 angular.module('storeApp')
   .controller('DepartmentCtrl', ['$scope', 'productService', 'Authentication', 'deptService', 'cartService',
     function($scope, productService, Authentication, deptService, cartService) {

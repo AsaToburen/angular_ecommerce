@@ -6,7 +6,6 @@ angular.module('storeApp')
 
     function($scope, FIREBASE_URL, $location, Authentication) {
 
-
       var ref = new Firebase(FIREBASE_URL);
 
       $scope.login = function(user) {
@@ -15,6 +14,8 @@ angular.module('storeApp')
       };
 
       $scope.register = function(user) {
+        console.log($scope.user);
+        console.log(JSON.stringify($scope.user));
         Authentication.register($scope.user)
           .then(function(user) {
             Authentication.login($scope.user);

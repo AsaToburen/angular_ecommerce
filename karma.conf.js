@@ -40,12 +40,12 @@ module.exports = function(config) {
 
 
     preprocessors: {
-      './app/directives/*.html': 'html2js'
+      'app/directives/*.html': 'html2js'
     },
 
     ngHtml2JsPreprocessor: {
       // strip app from the file path
-      stripPrefix: './app/'
+      stripPrefix: 'app/directives/'
     },
 
     // test results reporter to use
@@ -64,7 +64,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_DEBUG,
 
 
     // enable / disable watching file and executing tests whenever any file changes

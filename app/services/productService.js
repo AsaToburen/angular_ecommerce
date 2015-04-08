@@ -16,6 +16,7 @@ angular.module('storeApp')
         $q.when(MoltinAuth).then(function(moltin) {
           moltin.Product.List(null, function(products) {
             deferred.resolve(products);
+            console.log(products);
             productObj.loadingList = false;
           });
         });
@@ -32,6 +33,7 @@ angular.module('storeApp')
             category: $route.current.params.id
           }, function(products) {
             deferred.resolve(products);
+            console.log(products);
             productObj.loadingCategory = false;
           });
         });

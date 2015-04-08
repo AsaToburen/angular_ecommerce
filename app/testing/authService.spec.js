@@ -25,6 +25,15 @@ describe('Authentication Service', function() {
 
   beforeEach(module('storeApp'));
 
+  beforeEach(module(function($provide) {
+  $provide.value('MoltinAuth', {
+    Cart: {
+      Contents: function(cb) { return cb(mockCartData); }
+    }
+  });
+}));
+
+
   beforeEach(inject(function(_$httpBackend_, _$rootScope_, _Authentication_, _$location_, _$firebase_) {
     $firebase = _$firebase_;
     $location = _$location_;
