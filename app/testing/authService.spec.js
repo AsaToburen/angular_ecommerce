@@ -4,7 +4,7 @@ describe('Authentication Service', function() {
   var scope, $httpBackend, $rootScope, Authentication, $location, $firebase;
 
   beforeEach(module('storeApp'));
-  beforeEach(module('storeApp.mockFirebase'));
+  //beforeEach(module('storeApp.mockFirebase'));
 
   beforeEach(inject(function(_$httpBackend_, _$rootScope_, _Authentication_, _$location_, _$firebase_) {
     $firebase = _$firebase_;

@@ -38,6 +38,7 @@ describe('auth controller', function() {
   it('should contain login and register functions', function(){
     
     expect(Authentication.login).toBeTruthy();
+    expect(Authentication.register).toBeTruthy();
 
   });
 
