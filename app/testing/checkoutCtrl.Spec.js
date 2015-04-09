@@ -1,6 +1,7 @@
 describe('checkoutCtrl', function() {
 
   beforeEach(module('storeApp'));
+  beforeEach(module('storeApp.mockThirdParty'));
 
   var ctrl, scope, cartService, Authentication, $q, rootScope;
 
@@ -15,25 +16,25 @@ describe('checkoutCtrl', function() {
     });
   }));
 
-  xit('checkout controller should exist', function() {
+  it('checkout controller should exist', function() {
     expect(ctrl).toBeTruthy();
     expect(ctrl).not.toBe(null);
   });
 
-  xit('should attach checkout to cartService', function() {
+  it('should attach checkout to cartService', function() {
     expect(scope.checkout).toBe(cartService);
   });
 
-  xit('should attach checkout to Authentication', function() {
+  it('should attach checkout to Authentication', function() {
     expect(scope.auth).toBe(Authentication);
   });
 
-  xit('should call cartService and return scoped values', function() {
+  it('should call cartService and return scoped values', function() {
     expect(cartService.checkout()).not.toBe(null);
     expect(cartService.checkout()).toBeTruthy();
   });
 
-  xit('should call cartService and return scoped items', function() {
+  it('should call cartService and return scoped items', function() {
     cartService.checkout().then(function(data) {
       expect(scope.items).toBeTruthy();
       expect(scope.items).not.toBe(null);
@@ -45,7 +46,7 @@ describe('checkoutCtrl', function() {
     rootScope.$apply();
   });
 
-  xit('should call cartService and return scoped items', function() {
+  it('should call cartService and return scoped items', function() {
     cartService.checkout().then(function(data) {
 
       expect(scope.items).toBe(items.cart.contents);

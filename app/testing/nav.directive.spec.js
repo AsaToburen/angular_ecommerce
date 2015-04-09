@@ -2,7 +2,6 @@
 
 var navSnippet = '<li ng-hide="auth.$getAuth()"><a href="#/register">Register</a></li>';
 
-
 describe('nav directive', function() {
 
   var scope,

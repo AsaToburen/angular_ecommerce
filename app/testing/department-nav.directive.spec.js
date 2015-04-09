@@ -14,22 +14,18 @@ describe('checkout directive', function() {
   beforeEach(inject(function($rootScope, $compile) {
 
     scope = $rootScope.$new();
-
     element = angular.element('<department-nav></department-nav>');
-
     compile = $compile;
-
     compile(element)(scope);
-
     scope.$digest();
 
   }));
 
-  xit('should compile html that matches the template', function() {
+  it('should compile html that matches the template', function() {
     expect(element.hasClass('product-nav')).toBeTruthy();
   });
 
-  xit('contains an unordered list', function() {
+  it('contains an unordered list', function() {
     expect(element.html()).toContain('<ul>');
   });
 

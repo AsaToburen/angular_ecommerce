@@ -5,7 +5,7 @@ describe('testing routes', function() {
 
   beforeEach(module('storeApp'));
 
-  xit('should assign appropriate ctrl and template',
+  it('should assign appropriate ctrl and template',
     inject(function ($route) {
 
       expect($route.routes['/'].controller).toBe('DepartmentCtrl');

@@ -15,8 +15,9 @@ angular.module('storeApp')
         var deferred = $q.defer();
         $q.when(MoltinAuth).then(function(moltin) {
           moltin.Product.List(null, function(products) {
+            console.log(JSON.stringify(products));
             deferred.resolve(products);
-            console.log(products);
+            console.log(JSON.stringify(products));
             productObj.loadingList = false;
           });
         });
@@ -26,14 +27,15 @@ angular.module('storeApp')
       getCategory: function() {
 
         productObj.loadingCategory = true;
-        
+
         var deferred = $q.defer();
         $q.when(MoltinAuth).then(function(moltin) {
+          console.log($route.current.params.id);
           moltin.Product.Search({
             category: $route.current.params.id
           }, function(products) {
             deferred.resolve(products);
-            console.log(products);
+            console.log(JSON.stringify(products));
             productObj.loadingCategory = false;
           });
         });

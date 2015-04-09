@@ -18,13 +18,9 @@ describe('checkout directive', function() {
   beforeEach(inject(function($rootScope, $compile) {
 
     scope = $rootScope;
-
     element = angular.element('<checkout></checkout>');
-
     compile = $compile;
-
     compile(element)(scope);
-
     scope.$digest();
 
   }));

@@ -17,14 +17,11 @@ describe('product-section directive', function() {
   beforeEach(inject(function($rootScope, $compile) {
 
     scope = $rootScope;
-
     element = angular.element('<products></products>');
-
     compile = $compile;
-
     compile(element)(scope);
-
     scope.$digest();
+    
   }));
 
 

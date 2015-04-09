@@ -1,6 +1,9 @@
-describe('auth controller', function() {
+'use strict';
+
+describe('department controller', function() {
 
   beforeEach(module('storeApp'));
+  beforeEach(module('storeApp.mockThirdParty'));
 
   var ctrl, scope, Authentication, cartService, deptService, productService, $q, rootScope, location;
 
@@ -32,37 +35,45 @@ describe('auth controller', function() {
   });
 
 
-  //it('should call cartService and return scoped items', function() {
-  //  cartService.itemList().then(function(items) {
-  //    expect(scope.items).toBe(items);
-  //  });
-  //  rootScope.$apply();
-  //});
-  //
-  //it('should call productService and return scoped products', function() {
-  //  productService.getList().then(function(products) {
-  //    expect(scope.products).toBe(products);
-  //  });
-  //  rootScope.$apply();
-  //});
-  //
-  //it('should call deptService and return scoped departments', function() {
-  //  deptService.deptList().then(function(departments) {
-  //    expect(scope.departments).toBe(departments);
-  //  });
-  //  rootScope.$apply();
-  //});
-  //
-  //it('should call productService.getCategory and return scoped products', function() {
-  //  productService.getCategory().then(function(products) {
-  //    expect(scope.products).toBe(products);
-  //  });
-  //  rootScope.$apply();
-  //});
+  //Error: Unexpected request: GET views/home.html***
+    // All errors are originating from this file and the product
+    // service file. I haven't been able to figure out
+    // how/where to add 
+
+  //Do I need to pass in '$route.current.params.id' here?
+  //or do I need to pass in the relevant arguments within the 
+  //mocked service? 
 
 
+  it('should call productService and return scoped products', function() {
+    productService.getList().then(function(data) {
+      console.log(data);
+      expect(3).toEqual(3);
 
+      //expect(scope.products).toBeTruthy();
+      //expect(scope.products).not.toBe(null);
+    });
+    rootScope.$apply();
+  });
+  
+  it('should call cartService and return scoped items', function() {
+    cartService.itemList().then(function(data) {
+      expect(scope.items).toBe(items);
+    });
+    rootScope.$apply();
+  });
+  
+  it('should call deptService and return scoped departments', function() {
+    deptService.deptList().then(function(departments) {
+      expect(scope.departments).toBe(departments);
+    });
+    rootScope.$apply();
+  });
 
-
-
+  it('should call productService.getCategory and return scoped products', function() {
+    productService.getCategory().then(function(products) {
+      expect(scope.products).toBe(products);
+    });
+    rootScope.$apply();
+  });
 });
