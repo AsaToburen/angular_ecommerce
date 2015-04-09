@@ -8,8 +8,7 @@ module.exports = function(config) {
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
-
-
+    
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine'],
@@ -34,18 +33,17 @@ module.exports = function(config) {
       './app/testing/*.js'
     ],
 
-
     // list of files to exclude
     exclude: [],
 
 
     preprocessors: {
-      'app/directives/*.html': 'html2js'
+      'app/directives/*.html': 'ng-html2js'
     },
 
     ngHtml2JsPreprocessor: {
       // strip app from the file path
-      stripPrefix: 'app/directives/'
+      stripPrefix: 'app/'
     },
 
     // test results reporter to use

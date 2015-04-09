@@ -84,9 +84,9 @@
             List: function(cb) {
               return cb(mockProductData);
             },
-            Search: function(cb) {
-              return cb();
-            }
+            //Search: function(cb) {
+            //  return cb();
+            //}
           }
         });
       }));
@@ -107,8 +107,6 @@
         expect(angular.isFunction(productService.getList)).toBe(true);
         expect(angular.isFunction(productService.getCategory)).toBe(true);
       });
-
-
 
       //it('should return a list of items when calling productService.getList', function() {
       //  productService.getList().then(function(data) {

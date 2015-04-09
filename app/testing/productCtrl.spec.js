@@ -32,27 +32,27 @@ describe('auth controller', function() {
   });
 
 
-it('should call cartService and return scoped items', function() {
-  cartService.itemList().then(function(items) {
-    expect(scope.items).toBe(items);
-  });
-  rootScope.$apply();
-});
-//
+  //it('should call cartService and return scoped items', function() {
+  //  cartService.itemList().then(function(items) {
+  //    expect(scope.items).toBe(items);
+  //  });
+  //  rootScope.$apply();
+  //});
+  //
   //it('should call productService and return scoped products', function() {
   //  productService.getList().then(function(products) {
   //    expect(scope.products).toBe(products);
   //  });
   //  rootScope.$apply();
   //});
-//
+  //
   //it('should call deptService and return scoped departments', function() {
   //  deptService.deptList().then(function(departments) {
   //    expect(scope.departments).toBe(departments);
   //  });
   //  rootScope.$apply();
   //});
-//
+  //
   //it('should call productService.getCategory and return scoped products', function() {
   //  productService.getCategory().then(function(products) {
   //    expect(scope.products).toBe(products);

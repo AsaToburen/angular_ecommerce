@@ -1,6 +1,5 @@
 'use strict';
 
-
 angular.module('storeApp')
   .directive('shoppingCart', function(){
   return {
