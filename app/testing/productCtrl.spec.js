@@ -4,6 +4,7 @@ describe('department controller', function() {
 
   beforeEach(module('storeApp'));
   beforeEach(module('storeApp.mockThirdParty'));
+  beforeEach(module('views/home.html'));
 
   var ctrl, scope, Authentication, cartService, deptService, productService, $q, rootScope, location;
 
@@ -35,23 +36,10 @@ describe('department controller', function() {
   });
 
 
-  //Error: Unexpected request: GET views/home.html***
-    // All errors are originating from this file and the product
-    // service file. I haven't been able to figure out
-    // how/where to add 
-
-  //Do I need to pass in '$route.current.params.id' here?
-  //or do I need to pass in the relevant arguments within the 
-  //mocked service? 
-
-
   it('should call productService and return scoped products', function() {
     productService.getList().then(function(data) {
-      console.log(data);
-      expect(3).toEqual(3);
-
-      //expect(scope.products).toBeTruthy();
-      //expect(scope.products).not.toBe(null);
+      expect(scope.products).toBeTruthy();
+      expect(scope.products).not.toBe(null);
     });
     rootScope.$apply();
   });

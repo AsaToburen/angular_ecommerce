@@ -29,9 +29,9 @@
           ng-required="true"
           ><br>
       <div>
-        <button ng-disabled="loginForm.$invalid" type="submit">Login</button>
-        <button ng-click="toRegister()">Register</button>
-        <button ng-click="toProducts()">Continue</button>
+        <button id="loginBtn" ng-disabled="loginForm.$invalid" type="submit">Login</button>
+        <button id="registerBtn" ng-click="toRegister()">Register</button>
+        <button id="continueBtn" ng-click="toProducts()">Continue</button>
       </div>
       </fieldset>
     </form>

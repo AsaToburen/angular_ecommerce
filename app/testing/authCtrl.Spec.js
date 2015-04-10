@@ -1,11 +1,7 @@
 describe('auth controller', function() {
 
-//var user = {
-//  email: "apple@apple.com",
-//  password: "apple"
-//};
-
   beforeEach(module('storeApp'));
+  //beforeEach(module('storeApp.mockFirebase'));
   
   var ctrl, scope, Authentication, $q, rootScope, location;
 

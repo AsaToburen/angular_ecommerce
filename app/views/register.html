@@ -37,8 +37,8 @@
           <br>
         <p>{{error.message}}</p>
         <div>
-          <button ng-click="toLogin()">Login</button>
-          <button ng-disabled="registerForm.$invalid" name="registerForm" type="submit">Register</button>
+          <button id="loginBtn" ng-click="toLogin()">Login</button>
+          <button id="registerBtn" ng-disabled="registerForm.$invalid" name="registerForm" type="submit">Register</button>
         </div>
       </fieldset>
     </form>

@@ -1,25 +1,18 @@
 'use strict';
 
-var itemID = 'f574367efca9a2ab734b9cb81dab805b';
-
-
 describe('cartservice', function() {
-      var scope, $httpBackend, $rootScope, cartService, $location;
+      var scope, $rootScope, cartService, $location;
 
       beforeEach(module('storeApp'));
       beforeEach(module('storeApp.mockThirdParty'));
 
-        beforeEach(inject(function(_$httpBackend_, _$rootScope_, _cartService_, _$location_) {
+        beforeEach(inject(function(_$rootScope_, _cartService_, _$location_) {
           $location = _$location_;
-          $httpBackend = _$httpBackend_;
           $rootScope = _$rootScope_;
           cartService = _cartService_;
         }));
 
-        afterEach(function() {
-          $httpBackend.verifyNoOutstandingRequest();
-        });
-
+      
         it('should contain cartService', function() {
           expect(cartService).not.toEqual(null);
           expect(cartService).toBeDefined();

@@ -1,6 +1,5 @@
 'use strict';
 
-
 var checkoutSnippet = '<h1>Shopping Cart</h1>'
 '<i ng-show="!checkout.contentLoaded" class="spinner spinner--large spinner--dark"></i>'
 '<section class="ng-hide" ng-show="checkout.contentLoaded">';

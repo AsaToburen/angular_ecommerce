@@ -26,20 +26,17 @@ var mockAuthData = {
   "expires": 1428515685
 };
 
-var user = {
-  email: "apple@apple.com",
-  password: "apple"
-};
 
-//todo-mock
-//MockFirebase.prototype.orderByKey = function() { return this; };
-//MockFirebase.prototype.orderByPriority = function() { return this; };
-//MockFirebase.prototype.orderByValue = function() { return this; };
-//MockFirebase.prototype.orderByChild = function() { return this; };
-//MockFirebase.prototype.limitToLast = function() { return this; };
-//MockFirebase.prototype.limitToFirst = function() { return this; };
-//MockFirebase.prototype.startAt = function() { return this; };
-//MockFirebase.prototype.endAt = function() { return this; };
+var MockFirebase = function() {};
+
+MockFirebase.prototype.orderByKey = function() { return this; };
+MockFirebase.prototype.orderByPriority = function() { return this; };
+MockFirebase.prototype.orderByValue = function() { return this; };
+MockFirebase.prototype.orderByChild = function() { return this; };
+MockFirebase.prototype.limitToLast = function() { return this; };
+MockFirebase.prototype.limitToFirst = function() { return this; };
+MockFirebase.prototype.startAt = function() { return this; };
+MockFirebase.prototype.endAt = function() { return this; };
 
 angular.module('storeApp.mockFirebase', [])
   .run(function($window) {

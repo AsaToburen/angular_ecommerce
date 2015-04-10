@@ -7,7 +7,7 @@ describe('checkout directive', function() {
     element,
     html;
 
-  beforeEach(module("storeApp"));
+  beforeEach(module('storeApp'));
 
   beforeEach(module('directives/department-nav.html'));
 

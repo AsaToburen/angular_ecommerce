@@ -886,8 +886,6 @@ angular.module('storeApp.mockThirdParty', [])
       "images": []
     }];
 
-    // var mockRouteId = 947197186423128594;
-
     return function() {
       $provide.value('MoltinAuth', {
         Cart: {

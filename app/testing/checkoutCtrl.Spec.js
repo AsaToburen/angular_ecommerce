@@ -50,7 +50,6 @@ describe('checkoutCtrl', function() {
     cartService.checkout().then(function(data) {
 
       expect(scope.items).toBe(items.cart.contents);
-
       expect(scope.totals).toBe(items.cart.totals.pre_discount.rounded);
 
     });

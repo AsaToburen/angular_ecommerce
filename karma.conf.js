@@ -29,6 +29,7 @@ module.exports = function(config) {
       './app/services/*.js',
       './app/directives/*.js',
       './app/controllers/*.js',
+      './app/views/*.html',
       './app/directives/*.html',
       './app/testing/*.js'
     ],
@@ -38,7 +39,7 @@ module.exports = function(config) {
 
 
     preprocessors: {
-      'app/directives/*.html': 'ng-html2js'
+      'app/**/*.html': 'ng-html2js'
     },
 
     ngHtml2JsPreprocessor: {
