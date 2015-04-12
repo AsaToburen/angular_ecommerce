@@ -1,0 +1,108 @@
+  div.cart-container { 
+    width: 60%;
+    height: 100%;
+    margin: 2em auto;
+    padding-bottom: 10em;
+
+    h1 {
+      font-size: 3em;
+      font-family: 'Montserrat', sans-serif;
+      border-bottom: 5px solid #000;
+      display: inline-block;
+      padding-bottom: .3em;
+      width: 9em;
+
+
+    }
+    i {
+        position: relative;
+        bottom: .2em;
+        right: 1em;
+    }
+
+    section {
+      transition: opacity .7s ease-in;
+      background-color: #fff;
+      border: 2px solid #000;
+      margin-top: 1.5em;
+    }
+
+    section.ng-animate {
+      opacity: 0;
+    }
+  
+      table {
+        margin: 2em auto;
+        width: 90%;
+        tbody {
+          width: 80%;
+        }
+        th.head-text {
+            font-size: 1.2em;
+            position: relative;
+            right: 3.5em;
+        }
+        th.head-price {
+            font-size: 1.2em;
+            position: relative;
+            right: 2.1em;
+        }
+        tr {
+          height: 9em;
+          border-bottom: 2px solid #dedede;
+        }
+        tr.head {
+          height: 2em;
+        }
+        td {
+          font-size: 1.2em;
+          vertical-align: middle;
+        }
+        td.quant {
+          padding-right: 2em;
+        }
+      }
+      table.totals {
+        tbody {
+          text-align: right;
+          tr {
+            height: 4em;
+            :first-child {
+              position: relative;
+              left: 6em;
+              font-weight: bold;
+            }
+          }
+          td {
+            position: relative;
+            right: 4em;
+          }
+        }
+      }
+      button {
+        float: right;
+        margin-right: 6em;
+        padding: .9em;
+        font-size: 1.2em;
+        margin-top: 2em;
+      }
+      a {
+        align-items: flex-start;
+        text-align: center;
+        cursor: default;
+        color: buttontext;
+        padding: 2px 6px 3px;
+        border: 2px outset buttonface;
+        border-image-source: initial;
+        border-image-slice: initial;
+        border-image-width: initial;
+        border-image-outset: initial;
+        border-image-repeat: initial;
+        background-color: buttonface;
+        box-sizing: border-box;
+        float: right;
+        margin-right: 6em;
+        padding: .9em;
+        font-size: 1.2em;
+      }
+  }

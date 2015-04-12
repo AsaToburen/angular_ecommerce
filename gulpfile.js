@@ -40,7 +40,7 @@ gulp.task('usemin', function() {
 });
 
 gulp.task('sass', function() {
-    return sass('app/sass/styles.scss') 
+    return sass('app/sass/application.scss') 
     .on('error', function (err) {
       console.error('Error!', err.message);
    })
@@ -74,7 +74,7 @@ return target
 
 gulp.task('watch', function() {
   gulp.watch('./app/**/*.js', ['index']);
-  gulp.watch('./app/sass/styles.scss', ['sass']);
+  gulp.watch('./app/sass/*.scss', ['sass']);
 });
 
 

@@ -95,7 +95,8 @@ body {
 div nav {
   height: 4.5em;
   background-color: #2D3E4E;
-  padding: 1.5em 4em 0 3.7em; }
+  padding: 1.5em 4em 0 3.7em;
+  border-bottom: 1px solid #dedede; }
   div nav h1 {
     font-size: 2.5em;
     display: inline-block;
@@ -197,16 +198,13 @@ div.content-wrap div.store-map {
 
 section.products {
   margin: 0 auto;
-  width: 95%;
   height: 40em;
-  background-color: #EAEAE6;
-  padding-top: 1.5em; }
+  transition: all 1s ease;
+  background-color: #EAEAE6; }
   section.products aside {
-    border: 2px solid #000;
     display: inline-block;
     min-height: 6em;
-    width: 9%;
-    margin-left: 1.5%; }
+    width: 12.5%; }
     section.products aside i {
       top: .5em;
       left: .75em;
@@ -216,7 +214,7 @@ section.products {
       list-style-type: none;
       padding: .5em;
       font-size: 1.1em;
-      text-align: left; }
+      text-align: center; }
       section.products aside ul li a {
         color: #000;
         text-decoration: none;
@@ -232,6 +230,7 @@ section.products {
     float: right;
     width: 63.3%;
     border: 1px solid #000;
+    border-top: none;
     height: 100%;
     padding: 1em 2em;
     overflow: scroll;
@@ -302,6 +301,15 @@ section.products {
       cursor: pointer;
       display: block;
       margin: 1em auto; }
+
+section.products.ng-animate {
+  opacity: 0; }
+
+section.products.ng-enter {
+  opacity: 0; }
+
+section.products.ng-active {
+  opacity: 0; }
 
 div.cart-container {
   width: 60%;
