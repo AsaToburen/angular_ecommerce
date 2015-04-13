@@ -1,7 +1,7 @@
 <aside class="product-nav">
     <ul>
         <li ng-class="{ active: isActive('/products/{{department.id}}') }" ng-repeat="department in departments">
-            <a ng-href="#/products/{{department.id}}">{{department.title}}</a>
+            <a id="cat_link" ng-href="#/products/{{department.id}}">{{department.title}}</a>
         </li>
     </ul>
 </aside>

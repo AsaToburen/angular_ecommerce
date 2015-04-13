@@ -21,16 +21,15 @@ describe('home page tests', function() {
         expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/#/register');
     });
 
-    it('should navigate to registration page when login link is clicked', function() {
+    it('should navigate to products page when products link is clicked', function() {
         browser.get(ROOT + "/");
         element(by.id('products')).click();
         expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/#/products');
     });
-
 });
-describe('homepage through register to products', function() {
+describe('homepage through register', function() {
 
-    it('should navigate to the register page and register a user in', function() {
+    it('should navigate to the register page and register a user', function() {
 
         element(by.id('register')).click();
 
@@ -44,7 +43,7 @@ describe('homepage through register to products', function() {
 
         firstInput.sendKeys('Bob');
         lastInput.sendKeys('Smith');
-        emailInput.sendKeys('bsmith@apple.com');
+        emailInput.sendKeys('kkreelll@apple.com');
         passwordInput.sendKeys('apple');
 
         registerBtn.click();
@@ -52,19 +51,21 @@ describe('homepage through register to products', function() {
         browser.waitForAngular();
 
         expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/#/products');
-
-        //check to show that user is logged in
-        //log user out successfully
-
     });
 });
 
+describe('login/ logout', function() {
 
-describe('homepage through login to products', function() {
 
-    xit('should navigate to the login page and log a user in', function() {
+  it('should log a user in', function() {
 
-        element(by.id('login')).click();
+        var loginLink = element(by.id('login'));
+
+        loginLink.click();
+
+        browser.waitForAngular();
+
+        expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/#/login');
 
         var emailInput = element(by.model('user.email'));
         var passwordInput = element(by.model('user.password'));
@@ -80,11 +81,69 @@ describe('homepage through login to products', function() {
         expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/#/products');
 
     });
+      it('should log a user out from the products page', function() {
+        browser.get(ROOT + "#/products");
+
+        browser.waitForAngular();
+
+        expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/#/products');
+
+        browser.waitForAngular();
+
+        var logoutBtn = element(by.id('logout'));
+
+        logoutBtn.click();
+
+        browser.waitForAngular();
+
+        expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/#/login');
+    });
 });
 
 
+describe('login > products > addItem > checkout', function() {
+
+            it('should continue to products page, add item to cart and checkout', function() {
+                
+
+                browser.get(ROOT + "#/login");
+
+                var continueBtn = element(by.id('continueBtn'));
+
+                continueBtn.click();
+
+                browser.waitForAngular();
+
+                expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/#/products');
+            
+//
+//                element.all(by.repeater('product in products')).then(function(products) {
+//                    browser.actions().mouseMove(element(by.css('.item'))).perform();
+//                    element.by.id('itemBtn').click();
+//                });
+//                expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/#/products');
+            });
 });
-// add items to cart.
-// checkout specific product pages
-// navigate to home page product page and register pages
-// go to checkout page after adding items to cart.
+//        browser.waitForAngular();
+//
+//        element.all(by.repeater('department in departments')).then(function(departments) {
+//            var deptLink = departments[0].element(by.id('cat_link'));
+//            deptLink.click();
+//        });
+//
+//        browser.waitForAngular();
+//
+//        element(by.id('shop-cart')).click();
+//
+//        browser.waitForAngular();
+//
+//        expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/#/checkout');
+//
+//    });
+//});
+
+
+
+
+
+
