@@ -56,7 +56,7 @@ var vendorStream = gulp.src(['./app/bower_components/**/*.min.js'])
   .pipe(gulp.dest('build/'));
  
   var vendorStream = gulp.src(['./app/bower_components/**/*.min.js'], {read: false});
-  var vendorMapStream = gulp.src(['./app/bower_components/**/*.min.map.js'], {read: false});
+  var vendorMapStream = gulp.src(['./app/bower_components/**/*.min.js.map'], {read: false});
   var otherStream = gulp.src(['./app/scripts/*.js'], {read: false});
   var serviceStream = gulp.src(['./app/services/*.js'], {read: false});
   var directiveStream = gulp.src(['./app/directives/*.js'], {read: false});
@@ -88,8 +88,6 @@ gulp.task('default', ['watch',  'connect']);
 gulp.task('build', ['copy-html-files', 'imagemin', 'usemin']);
 
 
-//get build into a task and then use stream properly....
-// 
 
 
 
