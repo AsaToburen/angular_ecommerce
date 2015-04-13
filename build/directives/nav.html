@@ -1,0 +1,13 @@
+<nav >
+  <h1  id="title">Everything Must Go</h1>
+  <ul class="access-links">
+    <li ng-if="auth.$getAuth()">Welcome back!</li>
+    <li id="logout" class="logout" ng-if="auth.$getAuth()" ng-click="logout()">Logout</li>
+    <li  ng-hide="auth.$getAuth()"><a id="register" href="#/register">Register</a></li>
+    <li ng-hide="auth.$getAuth()"><a id="login" href="#/login">Login</a></li>
+  </ul>
+  <ul class="nav-links">
+    <li><a href="#/">Home</a></li>
+    <li><a id="products" href="#/products">Products</a></li>
+  </ul>
+</nav>

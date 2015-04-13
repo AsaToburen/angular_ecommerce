@@ -88,8 +88,6 @@ gulp.task('default', ['watch',  'connect']);
 gulp.task('build', ['copy-html-files', 'imagemin', 'usemin']);
 
 
-//get build into a task and then use stream properly....
-// 
 
 
 

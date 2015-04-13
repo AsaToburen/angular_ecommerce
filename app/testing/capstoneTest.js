@@ -57,7 +57,7 @@ describe('homepage through register', function() {
 describe('login/ logout', function() {
 
 
-  it('should log a user in', function() {
+    it('should log a user in', function() {
 
         var loginLink = element(by.id('login'));
 
@@ -81,7 +81,7 @@ describe('login/ logout', function() {
         expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/#/products');
 
     });
-      it('should log a user out from the products page', function() {
+    it('should log a user out from the products page', function() {
         browser.get(ROOT + "#/products");
 
         browser.waitForAngular();
@@ -103,44 +103,28 @@ describe('login/ logout', function() {
 
 describe('login > products > addItem > checkout', function() {
 
-            it('should continue to products page, add item to cart and checkout', function() {
-                
+    it('should continue to products page, add item to cart and checkout', function() {
 
-                browser.get(ROOT + "#/login");
+        browser.get(ROOT + "#/login");
 
-                var continueBtn = element(by.id('continueBtn'));
+        var continueBtn = element(by.id('continueBtn'));
 
-                continueBtn.click();
+        continueBtn.click();
 
-                browser.waitForAngular();
+        browser.waitForAngular();
 
-                expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/#/products');
-            
-//
-//                element.all(by.repeater('product in products')).then(function(products) {
-//                    browser.actions().mouseMove(element(by.css('.item'))).perform();
-//                    element.by.id('itemBtn').click();
-//                });
-//                expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/#/products');
-            });
+        expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/#/products');
+
+
+
+    });
 });
-//        browser.waitForAngular();
-//
-//        element.all(by.repeater('department in departments')).then(function(departments) {
-//            var deptLink = departments[0].element(by.id('cat_link'));
-//            deptLink.click();
-//        });
-//
-//        browser.waitForAngular();
-//
-//        element(by.id('shop-cart')).click();
-//
-//        browser.waitForAngular();
-//
-//        expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/#/checkout');
-//
-//    });
-//});
+
+
+
+
+
+
 
 
 
