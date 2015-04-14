@@ -13,11 +13,16 @@
 
 <body>
   <div class="view" ng-view></div>
-  <!-- inject:js -->
+  <!-- build:vendor js/vendor.js -->
+  <!-- vendor:js -->
   <script src="bower_components/angular/angular.min.js"></script>
   <script src="bower_components/angular-animate/angular-animate.min.js"></script>
   <script src="bower_components/angular-route/angular-route.min.js"></script>
   <script src="bower_components/moltin/moltin.min.js"></script>
+  <!-- endinject -->
+  <!-- endbuild -->
+  <!-- build:app js/app.js -->
+  <!-- app:js -->
   <script src="scripts/app.js"></script>
   <script src="scripts/appConfig.js"></script>
   <script src="services/authentication.js"></script>
@@ -35,6 +40,7 @@
   <script src="controllers/checkoutCtrl.js"></script>
   <script src="controllers/product.js"></script>
   <!-- endinject -->
+  <!-- endbuild -->
   <script src="https://cdn.firebase.com/js/client/2.2.2/firebase.js"></script>
   <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
 </body>
