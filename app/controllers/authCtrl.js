@@ -1,12 +1,9 @@
 'use strict';
 
 angular.module('storeApp')
-  .controller('AuthCtrl', ['$scope', 
-   'FIREBASE_URL', '$location', 'Authentication',
+  .controller('AuthCtrl', ['$scope', '$location', 'Authentication',
 
-    function($scope, FIREBASE_URL, $location, Authentication) {
-
-      var ref = new Firebase(FIREBASE_URL);
+    function($scope, $location, Authentication) {
 
       $scope.login = function(user) {
         Authentication.login($scope.user);
@@ -14,8 +11,6 @@ angular.module('storeApp')
       };
 
       $scope.register = function(user) {
-        console.log($scope.user);
-        console.log(JSON.stringify($scope.user));
         Authentication.register($scope.user)
           .then(function(user) {
             Authentication.login($scope.user);

@@ -1,28 +1,28 @@
 'use strict';
 
 angular.module('storeApp')
-  .factory('deptService', function($q, MoltinAuth) {
+  .factory('deptService', ['$q', 'MoltinAuth',
+      function($q, MoltinAuth) {
 
-    var deptObj = {
+        var deptObj = {
 
-       loading : false,
-      
-      deptList: function() {
+          loading: false,
 
-          deptObj.loading = true;
+          deptList: function() {
 
-          var deferred = $q.defer();
+            deptObj.loading = true;
 
-          $q.when(MoltinAuth).then(function(moltin) {
-            moltin.Category.List(null, function(departments){
-              deferred.resolve(departments);
-              console.log(JSON.stringify(departments));
-               deptObj.loading = false;
+            var deferred = $q.defer();
+
+            $q.when(MoltinAuth).then(function(moltin) {
+              moltin.Category.List(null, function(departments) {
+                deferred.resolve(departments);
+                deptObj.loading = false;
+              });
             });
-          });
-          return deferred.promise;
-        },
-    };
-    return deptObj;
-    
-  });
+            return deferred.promise;
+          },
+        };
+        return deptObj;
+
+      }]);

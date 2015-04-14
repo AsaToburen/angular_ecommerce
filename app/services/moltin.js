@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('storeApp.moltin', [])
-  .factory('MoltinAuth', function($q) {
+  .factory('MoltinAuth', ['$q', function($q) {
     var deferred = $q.defer();
     var moltin = new Moltin({publicId: 'Z25m8FxwKcw0cAlPQuD9hOrFZquaV0rpv5shgFJS'});
     moltin.Authenticate(function(){
@@ -9,4 +9,4 @@ angular.module('storeApp.moltin', [])
       console.log(moltin);
     });
     return deferred.promise;
-  });
+  }]);

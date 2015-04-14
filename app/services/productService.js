@@ -1,47 +1,45 @@
 'use strict';
 
 angular.module('storeApp')
-  .factory('productService', function($q, $route, MoltinAuth) {
+  .factory('productService', ['$q', '$route', 'MoltinAuth',
+    function($q, $route, MoltinAuth) {
 
-    var productObj = {
+      var productObj = {
 
-      loadingList: false,
-      loadingCategory: true,
+        loadingList: false,
+        loadingCategory: true,
 
-      getList: function() {
+        getList: function() {
 
-        productObj.loadingList = true;
+          productObj.loadingList = true;
 
-        var deferred = $q.defer();
-        $q.when(MoltinAuth).then(function(moltin) {
-          moltin.Product.List(null, function(products) {
-            console.log(JSON.stringify(products));
-            deferred.resolve(products);
-            console.log(JSON.stringify(products));
-            productObj.loadingList = false;
+          var deferred = $q.defer();
+          $q.when(MoltinAuth).then(function(moltin) {
+            moltin.Product.List(null, function(products) {
+              deferred.resolve(products);
+              productObj.loadingList = false;
+            });
           });
-        });
-        return deferred.promise;
-      },
+          return deferred.promise;
+        },
 
-      getCategory: function() {
+        getCategory: function() {
 
-        productObj.loadingCategory = true;
+          productObj.loadingCategory = true;
 
-        var deferred = $q.defer();
-        $q.when(MoltinAuth).then(function(moltin) {
-          console.log($route.current.params.id);
-          moltin.Product.Search({
-            category: $route.current.params.id
-          }, function(products) {
-            deferred.resolve(products);
-            console.log(JSON.stringify(products));
-            productObj.loadingCategory = false;
+          var deferred = $q.defer();
+          $q.when(MoltinAuth).then(function(moltin) {
+            moltin.Product.Search({
+              category: $route.current.params.id
+            }, function(products) {
+              deferred.resolve(products);
+              productObj.loadingCategory = false;
+            });
           });
-        });
-        return deferred.promise;
-      }
-    };
-    return productObj;
+          return deferred.promise;
+        }
+      };
+      return productObj;
 
-  });
+    }
+  ]);

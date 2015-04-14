@@ -1,15 +1,15 @@
   section.products {
     margin: 0 auto;
-    width: 95%;
     height: 40em;
+    transition: all 1s ease;
     background-color: #EAEAE6;
-    padding-top: 1.5em;
+    
+
     aside {
-      border: 2px solid #000;
       display: inline-block;
       min-height: 6em;
-      width: 9%;
-      margin-left: 1.5%;
+      width: 12.5%;
+
 
       i {
         top: .5em;
@@ -22,7 +22,7 @@
           list-style-type: none;
           padding:.5em;
           font-size: 1.1em;
-          text-align: left;
+          text-align: center;
           a {
             color: #000;
             text-decoration: none;
@@ -43,6 +43,7 @@
         float: right;
         width: 63.3%;
         border: 1px solid #000;
+        border-top: none;
         height: 100%;
         padding: 1em 2em;
         overflow: scroll;
@@ -128,4 +129,15 @@
         margin: 1em auto;
       }
     }
+  }
+
+  section.products.ng-animate {
+    opacity: 0;
+  }
+    section.products.ng-enter {
+    opacity: 0;
+  }
+
+  section.products.ng-active {
+    opacity: 0;
   }
