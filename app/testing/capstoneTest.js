@@ -2,8 +2,6 @@
 
 var ROOT = "http://localhost:8080";
 
-
-
 describe('home page tests', function() {
 
   it('should display the home page and include login, register and products links', function() {
@@ -45,7 +43,7 @@ describe('homepage through register', function() {
 
     firstInput.sendKeys('Bob');
     lastInput.sendKeys('Smith');
-    emailInput.sendKeys('kqzeczkzezzcllxl@apple.com');
+    emailInput.sendKeys('kqzzclwlxl@apple.com');
     passwordInput.sendKeys('apple');
 
     registerBtn.click();
@@ -62,7 +60,6 @@ describe('homepage through register', function() {
 });
 
 describe('login/ add item', function() {
-
 
   it('should log a user in', function() {
 
