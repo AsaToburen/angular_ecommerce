@@ -45,124 +45,124 @@ angular.module('storeApp')
 'use strict';
 
 angular.module('storeApp')
-  .factory('Authentication', ['$firebase', '$location',
-    '$firebaseAuth', 'FIREBASE_URL',
+    .factory('Authentication', ['$firebase', '$location',
+        '$firebaseAuth', 'FIREBASE_URL',
 
-    function($firebase, $location, $firebaseAuth, FIREBASE_URL) {
+        function($firebase, $location, $firebaseAuth, FIREBASE_URL) {
 
-      var ref = new Firebase(FIREBASE_URL);
-      var auth = $firebaseAuth(ref);
+            var ref = new Firebase(FIREBASE_URL);
+            var auth = $firebaseAuth(ref);
 
-      var myObject = {
+            var myObject = {
 
-        auth: $firebaseAuth(ref),
+                auth: $firebaseAuth(ref),
 
-        authData: {},
-        userData: {},
+                authData: {},
+                userData: {},
 
-        login: function(user) {
-          auth.$authWithPassword({
-            email: user.email,
-            password: user.password
-          }).then(function(authData) {
-            console.log("Authenticated successfully with payload:", authData);
-          });
+                login: function(user) {
+                    auth.$authWithPassword({
+                        email: user.email,
+                        password: user.password
+                    }).then(function(authData) {
+                        console.log("Authenticated successfully with payload:", authData);
+                    });
 
-        },
-        logout: function() {
-          auth.$unauth();
-          $location.path('/login');
-        },
+                },
+                logout: function() {
+                    auth.$unauth();
+                    $location.path('/login');
+                },
 
-        register: function(userInput) {
-          return auth.$createUser({
-            email: userInput.email,
-            password: userInput.password
-          }).then(function(regUser) {
+                register: function(userInput) {
+                    return auth.$createUser({
+                        email: userInput.email,
+                        password: userInput.password
+                    }).then(function(regUser) {
 
 
-            var profileRef = new Firebase(FIREBASE_URL + 'users/' + regUser.uid);
-            profileRef.set({
-              date: Firebase.ServerValue.TIMESTAMP,
-              regUser: regUser.uid,
-              firstname: userInput.firstname,
-              lastname: userInput.lastname,
-              email: userInput.email
-            }, function(error) {
-              if (error) {
-                console.log("Error:", error);
-              } else {
-                console.log("Profile set successfully!");
-              }
-            });
-          });
+                        var profileRef = new Firebase(FIREBASE_URL + 'users/' + regUser.uid);
+                        profileRef.set({
+                            date: Firebase.ServerValue.TIMESTAMP,
+                            regUser: regUser.uid,
+                            firstname: userInput.firstname,
+                            lastname: userInput.lastname,
+                            email: userInput.email
+                        }, function(error) {
+                            if (error) {
+                                console.log("Error:", error);
+                            } else {
+                                console.log("Profile set successfully!");
+                            }
+                        });
+                    });
+                }
+            };
+            return myObject;
         }
-      };
-      return myObject;
-    }
-  ]);
+    ]);
 
 'use strict';
 
 angular.module('storeApp')
-  .factory('cartService', ['$q', '$location', 'MoltinAuth',
-    function($q, $location, MoltinAuth) {
+    .factory('cartService', ['$q', '$location', 'MoltinAuth',
+        function($q, $location, MoltinAuth) {
 
-      var cartObj = {
+            var cartObj = {
 
-        loading: false,
+                loading: false,
 
-        itemList: function() {
+                itemList: function() {
 
-          cartObj.loading = true;
+                    cartObj.loading = true;
 
-          var deferred = $q.defer();
-          $q.when(MoltinAuth).then(function(moltin) {
-            moltin.Cart.Contents(function(items) {
-              deferred.resolve(items);
-              cartObj.loading = false;
-            });
-          })
-          return deferred.promise;
-        },
+                    var deferred = $q.defer();
+                    $q.when(MoltinAuth).then(function(moltin) {
+                        moltin.Cart.Contents(function(items) {
+                            deferred.resolve(items);
+                            cartObj.loading = false;
+                        });
+                    })
+                    return deferred.promise;
+                },
 
-        addItem: function(itemID) {
+                addItem: function(itemID) {
 
-          var deferred = $q.defer();
-          $q.when(MoltinAuth).then(function(moltin) {
-            moltin.Cart.Insert(itemID, 1, null, function(cart) {
-              deferred.resolve(cart);
-            });
-          })
-          return deferred.promise;
-        },
+                    var deferred = $q.defer();
+                    $q.when(MoltinAuth).then(function(moltin) {
+                        moltin.Cart.Insert(itemID, 1, null, function(cart) {
+                            deferred.resolve(cart);
+                        });
+                    })
+                    return deferred.promise;
+                },
 
-        contentLoaded: true,
+                contentLoaded: true,
 
-        checkout: function() {
+                checkout: function() {
 
-          cartObj.contentLoaded = false;
+                    cartObj.contentLoaded = false;
 
-          var deferred = $q.defer();
-          $q.when(MoltinAuth).then(function(moltin) {
-            moltin.Cart.Checkout(function(cart) {
-              deferred.resolve(cart);
-              cartObj.contentLoaded = true;
-            });
-          })
-          return deferred.promise;
-        },
+                    var deferred = $q.defer();
+                    $q.when(MoltinAuth).then(function(moltin) {
+                        moltin.Cart.Checkout(function(cart) {
+                            deferred.resolve(cart);
+                            cartObj.contentLoaded = true;
+                        });
+                    })
+                    return deferred.promise;
+                },
 
-        toProducts: function() {
+                toProducts: function() {
 
-          $location.path('/products');
+                    $location.path('/products');
 
+                }
+            };
+
+            return cartObj;
         }
-      };
-
-      return cartObj;
-    }
-  ]);
+    ]);
 
 'use strict';
 
@@ -322,18 +322,6 @@ angular.module('storeApp')
     scope: true
   };
 });
-'use strict';
-
-angular.module('storeApp')
-  .directive('shoppingCart', function(){
-  return {
-    restrict: 'E',
-    templateUrl: 'directives/shopping-cart.html',
-    replace: true,
-    scope: true
-  };
-});
-
 'use strict';
 
 angular.module('storeApp')

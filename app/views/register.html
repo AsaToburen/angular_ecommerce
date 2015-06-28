@@ -1,46 +1,24 @@
 <section class="Auth">
-  <div class="auth-container">
-    <form class="auth-field" name="registerForm" ng-submit="register()" novalidate>
-      <fieldset>
-        <legend>Register</legend>
-        <ul>
-          <li>First name:</li>
-          <li>Last name:</li>
-          <li>Email:</li>
-          <li>Password:</li>
-        </ul>
-        
-        <input name="firstname" 
-          type="firstname"
-          ng-model="user.firstname"
-          ng-required="true"
-          autofocus><br>
-  
-        
-        <input name="lastname" 
-          type="lastname"
-          ng-required="true"
-          ng-model="user.lastname"><br>
-  
-       
-        <input name="email" 
-          type="email"
-          ng-required="true"
-          ng-model="user.email">
-          <br>
-  
-       
-        <input name="password" 
-          type="password"
-          ng-required="true"
-          ng-model="user.password">
-          <br>
-        <p>{{error.message}}</p>
-        <div>
-          <button id="loginBtn" ng-click="toLogin()">Login</button>
-          <button id="registerBtn" ng-disabled="registerForm.$invalid" name="registerForm" type="submit">Register</button>
-        </div>
-      </fieldset>
-    </form>
-  </div>
+    <div class="auth-container">
+        <form class="auth-field register" name="registerForm" ng-submit="register()" novalidate>
+            <fieldset>
+                <legend>Register</legend>
+                <label for="firstname">Firstname:</label>
+                <input name="firstname" type="firstname" ng-model="user.firstname" ng-required="true" autofocus>
+                <label for="lastname">Lastname:</label>
+                <input name="lastname" type="lastname" ng-required="true" ng-model="user.lastname">
+                <label for="email">Email:</label>
+                <input name="email" type="email" ng-required="true" ng-model="user.email">
+                <label for="Password">Password:</label>
+                <input name="password" type="password" ng-required="true" ng-model="user.password">
+                <br>
+                <p>{{error.message}}</p>
+                <div>
+                    <button id="loginBtn" ng-click="toLogin()">Login</button>
+                    <button id="registerBtn" ng-disabled="registerForm.$invalid" name="registerForm" type="submit">Register</button>
+                    <button id="continueBtn" ng-click="toProducts()">Continue</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
 </section>

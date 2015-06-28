@@ -1,12 +1,11 @@
-
 <section class="product-container">
     <div class="loading"></div>
     <div class="item" ng-repeat="product in products">
+        <button ng-click="cart.addItem(product.id)"><i class="ion-android-add-circle"></i></button>
         <img ng-src='{{product.images[0].url.http}}' width="100px" alt="{{product.title}}">
         <div class="detail">
             <span>{{product.title}}</span>
             <span>{{product.price | currency}}</span>
         </div>
-        <button class="itemBtn" ng-click="cart.addItem(product.id)">Add To Cart</button>
     </div>
 </section>

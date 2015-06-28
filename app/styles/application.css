@@ -65,7 +65,9 @@ table {
     opacity: 0.5;
     /* [2] */ }
 
-[ng\:cloak], [ng-cloak], .ng-cloak {
+[ng\:cloak],
+[ng-cloak],
+.ng-cloak {
   display: none; }
 
 .spinner--small {
@@ -120,10 +122,21 @@ div nav {
     display: inline-block;
     list-style-type: none;
     font-size: 1.2em;
-    margin: 1em 0; }
+    margin: 1em 0;
+    vertical-align: top; }
     div nav li a {
       text-decoration: none;
       color: #dedede; }
+    div nav li i {
+      position: relative;
+      left: 2.2em;
+      bottom: 1.5em;
+      cursor: pointer; }
+  div nav li:last-child {
+    margin-top: -.6em;
+    margin-left: .5em; }
+    div nav li:last-child:before {
+      display: none; }
 
 .auth-field {
   transition: all 1s ease;
@@ -193,63 +206,62 @@ div.content-wrap div.store-map {
   background-color: #fff;
   width: 25%; }
 
-section.products {
+div.products {
   margin: 0 auto;
-  height: 40em;
   transition: all 1s ease;
-  background-color: #EAEAE6; }
-  section.products aside {
+  background-color: #EAEAE6;
+  height: auto;
+  overflow: auto;
+  width: 100%; }
+  div.products aside {
+    width: 12.5%;
+    margin-left: 3.7em;
     display: inline-block;
-    min-height: 6em;
-    width: 12.5%; }
-    section.products aside i {
+    margin-top: 2em;
+    border: 4px solid #000; }
+    div.products aside i {
       top: .5em;
       left: .75em;
       position: relative; }
-    section.products aside ul li {
+    div.products aside ul li {
       text-decoration: none;
       list-style-type: none;
       padding: .5em;
       font-size: 1.1em;
       text-align: center; }
-      section.products aside ul li a {
+      div.products aside ul li a {
         color: #000;
         text-decoration: none;
         text-align: center;
         font-family: 'Montserrat', sans-serif; }
-      section.products aside ul li:hover {
+      div.products aside ul li:hover {
         background-color: #2D3E4E; }
-        section.products aside ul li:hover a {
+        div.products aside ul li:hover a {
           color: #c0cad6; }
-    section.products aside ul li.active {
+    div.products aside ul li.active {
       background-color: #808080; }
-  section.products section.product-container {
+  div.products section.product-container {
     float: right;
-    width: 63.3%;
+    width: 64.3%;
     border: 1px solid #000;
-    border-top: none;
-    height: 100%;
-    padding: 1em 2em;
-    overflow: scroll;
+    height: 48em;
+    padding: 1em;
+    margin-right: 8.5em;
+    margin-top: 2em;
     display: flex;
     flex-wrap: wrap;
-    position: relative;
-    left: -14%;
     background-color: #fff; }
-    section.products section.product-container div.item.ng-enter {
+    div.products section.product-container div.item.ng-enter {
       opacity: 0; }
-    section.products section.product-container div.item {
-      width: 30%;
-      height: 30%;
-      margin: .5em .7em;
+    div.products section.product-container div.item {
+      width: 30.5%;
+      height: 11em;
+      border: 2px solid #d3d3d3;
+      margin: .5em;
       text-align: center;
       position: relative;
       transition: opacity .5s ease; }
-      section.products section.product-container div.item:hover button {
-        display: block; }
-      section.products section.product-container div.item:hover img {
-        margin-top: 2.5%; }
-      section.products section.product-container div.item img {
+      div.products section.product-container div.item img {
         transition: all;
         max-height: 125px;
         margin-top: 4%;
@@ -257,23 +269,30 @@ section.products {
         -moz-transition: margin-top ease .3s;
         -o-transition: margin-top ease .3s;
         transition: margin-top ease .3s; }
-      section.products section.product-container div.item div {
+      div.products section.product-container div.item div {
         position: absolute;
         margin: auto;
         left: 0;
         bottom: 2em;
         right: 0; }
-      section.products section.product-container div.item span + span:before {
+      div.products section.product-container div.item span + span:before {
         content: "|";
         padding: 0 1em; }
-      section.products section.product-container div.item button {
+      div.products section.product-container div.item button {
         display: none;
-        width: 100%;
         position: absolute;
-        bottom: 0;
-        left: 0;
-        height: 2.5em; }
-  section.products div.shop-cart {
+        color: #252525;
+        right: 0;
+        height: 3em;
+        width: 3em;
+        cursor: pointer; }
+        div.products section.product-container div.item button i {
+          font-size: 2em; }
+      div.products section.product-container div.item:hover {
+        border: 2px solid #000; }
+        div.products section.product-container div.item:hover button {
+          display: inline-block; }
+  div.products div.shop-cart {
     width: 4.5%;
     display: inline-block;
     height: 8.5%;
@@ -281,18 +300,18 @@ section.products {
     position: relative;
     left: -12%;
     float: right; }
-    section.products div.shop-cart img {
+    div.products div.shop-cart img {
       position: relative;
       top: -40%;
       right: 10%; }
-    section.products div.shop-cart span {
+    div.products div.shop-cart span {
       color: #dedede;
       position: relative;
       z-index: 12;
       top: 30%;
       left: 45%;
       font-family: 'Montserrat', sans-serif; }
-    section.products div.shop-cart button {
+    div.products div.shop-cart button {
       border: 1px solid #000;
       padding: 1em;
       cursor: pointer;
@@ -416,9 +435,9 @@ div.auth-container {
     div.auth-container ul li {
       margin: 1.85em 0em; }
   div.auth-container input {
-    margin: 2.5em 5.3em 0em 2em;
-    height: 2em;
-    float: right; }
+    margin: 1em 1.5em 1em 0;
+    font-size: 1em;
+    width: 51%; }
   div.auth-container div {
     height: 2em;
     overflow: auto;
@@ -435,3 +454,9 @@ div.auth-container {
 
 form.login button {
   margin-right: 1em; }
+
+form.register input {
+  margin: 1em 2em 1em 0.7em;
+  font-size: 1em;
+  padding-left: .5em;
+  width: 51%; }

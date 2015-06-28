@@ -1,5 +1,7 @@
 'use strict';
 
+var Firebase = require('firebase');
+
 var ROOT = "http://localhost:8080";
 
 describe('home page tests', function() {
@@ -43,7 +45,7 @@ describe('homepage through register', function() {
 
     firstInput.sendKeys('Bob');
     lastInput.sendKeys('Smith');
-    emailInput.sendKeys('kqzzclwlxl@apple.com');
+    emailInput.sendKeys('kqzzclxwlxl@apple.com');
     passwordInput.sendKeys('apple');
 
     registerBtn.click();
@@ -52,10 +54,16 @@ describe('homepage through register', function() {
 
     expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/#/products');
 
-    //var profileRef = new Firebase(FIREBASE_URL + 'users/' + regUser.uid);
+    var ref = new Firebase('https://shopangular.firebaseio.com/users');
 
-    //profileRef.$remove();
+    ref.on('value', function(users) {
 
+      users.forEach(function(user) {
+        if (user.val().email == 'kqzzclzwlxl@apple.com') {
+          user.remove();
+        }
+      });
+    });
   });
 });
 
@@ -95,8 +103,11 @@ describe('login/ add item', function() {
     browser.sleep(3000);
 
     element.all(by.repeater('product in products')).then(function(products) {
-      browser.actions().mouseMove(element(by.css('.item'))).perform();
-      var btn = element(by.css('.itemBtn'));
+
+      var product = element(by.css('.item'));
+      browser.actions().mouseMove(product).perform();
+      product.element(by.css('.itemBtn'));
+      var btn = product.element(by.css('.itemBtn'));
       btn.click();
       browser.sleep(9000);
     });

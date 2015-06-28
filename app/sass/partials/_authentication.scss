@@ -1,64 +1,66 @@
  section.Auth {
-      
-      width: 100%;
-      position: absolute;
-      height: 50em;
-      background-image: url('../images/auth_bg.jpg');
-      background-repeat: no-repeat;
-      background-size: 100%;
-  }
-
-
-  div.auth-container {
-    width: 33%;
-    margin: 5em auto;
-    position: relative;
-
-    legend {
-      text-align: left;
-      font-size: 2.5em;
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    fieldset {
-      background-color: #EAEAE6;
-      font-size: 1.2em;
-      text-align: right;
-    }
-    
-    ul {
-      float: left;
-      margin-left: 4.5em;
-      li {
-        margin: 1.85em 0em;
-
-      }
-    }
-
-    input {
-      margin: 2.5em 5.3em 0em 2em;
-      height: 2em;
-      float: right; 
-    }
-    div {
-      height: 2em;
-      overflow: auto;
-      width: 14em;
-      padding: .5em 0em;
-      margin-left: 3em;
-      margin-bottom: 1em;
-        button {
-          margin-top: 1em;
-          margin-left: 1em;
-          display: inline-block;
-          float: left;
-          padding: 1em;
-        }
-      }
-  }
-
-  form.login {
-    button {
-        margin-right: 1em;
-    }
-  }
+     width: 100%;
+     position: absolute;
+     height: 50em;
+     background-image: url('../images/auth_bg.jpg');
+     background-repeat: no-repeat;
+     background-size: 100%;
+ }
+ 
+ div.auth-container {
+     width: 33%;
+     margin: 5em auto;
+     position: relative;
+     legend {
+         text-align: left;
+         font-size: 2.5em;
+         font-family: 'Montserrat', sans-serif;
+     }
+     fieldset {
+         background-color: #EAEAE6;
+         font-size: 1.2em;
+         text-align: right;
+     }
+     ul {
+         float: left;
+         margin-left: 4.5em;
+         li {
+             margin: 1.85em 0em;
+         }
+     }
+     input {
+         margin: 1em 1.5em 1em 0;
+         font-size: 1em;
+         width: 51%;
+     }
+     div {
+         height: 2em;
+         overflow: auto;
+         width: 14em;
+         padding: .5em 0em;
+         margin-left: 3em;
+         margin-bottom: 1em;
+         button {
+             margin-top: 1em;
+             margin-left: 1em;
+             display: inline-block;
+             float: left;
+             padding: 1em;
+         }
+     }
+ }
+ 
+ form.login {
+     button {
+         margin-right: 1em;
+     }
+ }
+ 
+ form.register {
+     input {
+         margin: 1em 2em 1em 0.7em;
+         font-size: 1em;
+         padding-left: .5em;
+         width: 51%;
+     }
+ }

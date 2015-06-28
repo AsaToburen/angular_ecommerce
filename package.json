@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "firebase": "^2.2.4",
     "gulp": "^3.8.11"
   },
   "devDependencies": {
+    "del": "^1.2.0",
     "event-stream": "^3.3.0",
     "gulp-build": "^0.5.3",
     "gulp-clean": "^0.3.1",
